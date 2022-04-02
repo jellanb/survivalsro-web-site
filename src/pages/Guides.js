@@ -1,4 +1,4 @@
-import { display, minHeight, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import TabsUnstyled from "@mui/base/TabsUnstyled";
 import TabsListUnstyled from "@mui/base/TabsListUnstyled";
 import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
@@ -26,6 +26,7 @@ const TabContainer = styled(TabsListUnstyled)(({ theme }) => ({
   wordWrap: "break-word",
   gap: "0.3em",
   marginTop: "1em",
+  marginBottom: "1em",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "row",
     marginLeft: theme.spacing(1),
@@ -76,33 +77,62 @@ const TabPanel = styled(TabPanelUnstyled)`
 `;
 
 const Guides = () => {
-  const levelingData = [
-    {
-      bgUrl:
-        "https://www.rae.es/sites/default/files/styles/wysiwyg_100_/public/2021-07/ramdomtwitter_Mesa%20de%20trabajo%201.png?itok=JfO9YVoD",
-      data: [
-        {
-          videoUrl: "https://www.youtube.com/embed/0156DKSm1V0",
-        },
-        {
-          videoUrl: "url",
-        },
-      ],
-    },
-  ];
+  const levelingData = {
+    sections: [
+      {
+        bgUrl:
+          "https://www.rae.es/sites/default/files/styles/wysiwyg_100_/public/2021-07/ramdomtwitter_Mesa%20de%20trabajo%201.png?itok=JfO9YVoD",
+        annexes: [
+          {
+            video: {
+              url: "https://www.youtube.com/embed/0156DKSm1V0",
+              width: 600,
+              height: 400,
+            },
+          },
+        ],
+      },
+      {
+        annexes: [
+          {
+            text: {
+              value:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id sem et nisi ultricies viverra. Duis sagittis viverra pulvinar. Maecenas eget leo maximus, pulvinar massa et, consectetur enim. Mauris ut ligula cursus, bibendum mi quis, hendrerit est. Fusce ornare nisi ac mauris pharetra placerat. Aenean et fringilla arcu, quis accumsan libero. Etiam neque ipsum, iaculis quis malesuada et, consequat in lorem. Sed non nisl vel arcu bibendum congue ornare sit amet ipsum. Duis vel tempor libero. Vestibulum nec sagittis dolor, at convallis sem. Vestibulum quis ipsum vel urna fringilla cursus ac eu orci.",
+              width: 250,
+              size: 1,
+            },
+          },
+        ],
+      },
+      {
+        annexes: [
+          {
+            image: {
+              url: "https://s2.coinmarketcap.com/static/img/coins/64x64/3388.png",
+              size: 5,
+            },
+            position: {
+              x: 50,
+              y: 50,
+            },
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <Container defaultValue={0}>
       <TabContainer>
         <Tab>
-          <IntlTypography text='leveling' />
+          <IntlTypography text='install' />
         </Tab>
         <Tab>
           <IntlTypography text='guide' />
         </Tab>
       </TabContainer>
       <TabPanel value={0}>
-        <Guide data={levelingData} />
+        <Guide sections={levelingData.sections} />
       </TabPanel>
       <TabPanel value={1}>2</TabPanel>
     </Container>

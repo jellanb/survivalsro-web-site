@@ -1,25 +1,36 @@
+import { styled } from "@material-ui/core";
 import PropTypes from "prop-types";
+import Section from "./Section";
 
-const Guide = (props) => {
-  const { data } = props;
+const Container = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.5em",
+  with: "100%",
+}));
 
+const Guide = ({ sections }) => {
   return (
-    <>
-      {data &&
-        data.map((section) => {
-          return <span key={JSON.stringify(section)}>{section.bgUrl}</span>;
+    <Container>
+      {sections &&
+        sections.map((section) => {
+          return <Section key={JSON.stringify(section)} {...section} />;
         })}
-    </>
+    </Container>
   );
 };
 
 Guide.prototype = {
-  data: PropTypes.arrayOf(
+  sections: PropTypes.arrayOf(
     PropTypes.shape({
       bgUrl: PropTypes.string,
-      data: PropTypes.arrayOf(
+      annexes: PropTypes.arrayOf(
         PropTypes.shape({
-          videoUrl: PropTypes.string,
+          video: PropTypes.shape({
+            url: PropTypes.string,
+            width: PropTypes.number,
+            height: PropTypes.number,
+          }),
           image: PropTypes.shape({
             url: PropTypes.string,
             size: PropTypes.number,

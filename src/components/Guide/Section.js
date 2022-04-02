@@ -2,11 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { styled } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-const MAX_WIDTH = 1500;
+const MAX_WIDTH = 720;
 
 const Container = styled("div")(({ theme }) => ({
   position: "relative",
   with: "100%",
+  minHeight: "1em",
 }));
 
 const Background = styled("img")(({ theme }) => ({
@@ -18,11 +19,20 @@ const Annex = styled("div")(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   gap: "0.5em",
-  position: "absolute",
+  minHeight: "1em",
 }));
 
-const Section = (props) => {
-  const { bgUrl, data } = props;
+const AnnexImg = styled("img")(({ theme }) => ({
+  with: "100%",
+}));
+
+const AnnexText = styled("span")(({ theme }) => ({
+  with: "100%",
+  maxWidth: MAX_WIDTH,
+  minHeight: "1em",
+}));
+
+const Section = ({ bgUrl, annexes }) => {
   const [containerSize, setContainerSize] = useState(0);
   const containerRef = useRef(null);
 
@@ -44,47 +54,85 @@ const Section = (props) => {
     return (containerSize * initialWidth) / MAX_WIDTH;
   };
 
-  const calcAnnexTextSize = (initialSize) => {
-    return (containerSize * initialSize) / MAX_WIDTH;
-  };
-
   return (
-    <Container ref={containerRef}>
-      {data &&
-        data.map((annex) => {
-          const { videoUrl } = annex;
+    <Container
+      ref={containerRef}
+      style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : {}}
+    >
+      {annexes &&
+        annexes.map((annex) => {
+          const { video, image, text, position } = annex;
 
           return (
-            <Annex key={JSON.stringify(annex)}>
-              {videoUrl && (
+            <Annex
+              key={JSON.stringify(annex)}
+              style={{
+                ...(position
+                  ? {
+                      top: `${position.y}px`,
+                      left: `${position.x}px`,
+                      position: "absolute",
+                    }
+                  : {}),
+              }}
+            >
+              {video && (
                 <iframe
-                  src={videoUrl}
+                  src={video.url}
+                  width={video.width}
+                  height={video.height}
                   title='YouTube video player'
                   frameborder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowfullscreen
                 ></iframe>
               )}
+
+              {image && (
+                <AnnexImg
+                  style={{
+                    width: `${calcAnnexImageWidth(image.size)}em`,
+                    maxWidth: `${calcAnnexImageWidth(image.size)}em`,
+                  }}
+                  src={image.url}
+                />
+              )}
+
+              {text && (
+                <AnnexText
+                  style={{
+                    fontSize: `${text.size}em`,
+                    width: `${text.width | "auto"}px`,
+                    color: `${text.color | "auto"}px`,
+                  }}
+                >
+                  {text.value}
+                </AnnexText>
+              )}
             </Annex>
           );
         })}
-
-      {bgUrl && <Background src={bgUrl} />}
     </Container>
   );
 };
 
 Section.prototype = {
   bgUrl: PropTypes.string,
-  data: PropTypes.arrayOf(
+  annexes: PropTypes.arrayOf(
     PropTypes.shape({
-      videoUrl: PropTypes.string,
+      video: PropTypes.shape({
+        url: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+      }),
       image: PropTypes.shape({
         url: PropTypes.string,
         size: PropTypes.number,
       }),
       text: PropTypes.shape({
         value: PropTypes.string,
+        width: PropTypes.number,
+        color: PropTypes.string,
       }),
       position: PropTypes.shape({
         x: PropTypes.number,
