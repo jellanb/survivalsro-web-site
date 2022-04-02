@@ -4,9 +4,4 @@ import "./index.css";
 import SilkroadSurvivalApp from "./silkroad-survival-app";
 import "./i18n";
 
-ReactDOM.render(
-  <div>
-    <SilkroadSurvivalApp />
-  </div>,
-  document.getElementById("root")
-);
+ReactDOM.render(<SilkroadSurvivalApp />, document.getElementById("root"));

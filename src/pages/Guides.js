@@ -66,7 +66,7 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
 const TabPanel = styled(TabPanelUnstyled)`
   background-color: #212122;
   border: 2px #757a75;
-  border-radius: 0.5em 0.5em 0 0;
+  border-radius: 0.5em;
   border-style: double;
   color: #afc8d6;
   padding: 0.5em;
@@ -81,8 +81,90 @@ const Guides = () => {
         <Tab>
           <IntlTypography text='leveling' />
         </Tab>
+        <Tab>
+          <IntlTypography text='guide' />
+        </Tab>
       </TabContainer>
-      <TabPanel value={0}>Lvl up</TabPanel>
+      <TabPanel value={0}>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+        <p>Lvl up</p>
+      </TabPanel>
+      <TabPanel value={1}>2</TabPanel>
     </Container>
   );
 };

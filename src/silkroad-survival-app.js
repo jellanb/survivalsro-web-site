@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Header from "./components/app/header/Header";
-import Footer from "./components/app/footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Main from "./pages/Main";
@@ -13,15 +11,15 @@ import EditAccount from "./pages/EditAccount";
 import MercadoPago from "./pages/MercadoPagoPayment";
 import Guides from "./pages/Guides";
 import { UserContext } from "./hooks/UserContext";
+import MainLayout from "./containers/layouts/MainLayout";
 
 export default function SilkroadSurvivalApp() {
   const [userCtx, setUserCtx] = useState({});
 
   return (
     <UserContext.Provider value={{ userCtx, setUserCtx }}>
-      <React.Fragment>
-        <Router>
-          <Header />
+      <Router>
+        <MainLayout>
           <Switch>
             <Route exact path='/' component={Main} />
             <Route exact path='/singUp' component={SingUp} />
@@ -33,9 +31,8 @@ export default function SilkroadSurvivalApp() {
             <Route exact path='/editAccount' component={EditAccount} />
             <Route exact path='/MercadoPago' component={MercadoPago} />
           </Switch>
-        </Router>
-        <Footer title='Silkroad Survival' description='Servidor Privado' />
-      </React.Fragment>
+        </MainLayout>
+      </Router>
     </UserContext.Provider>
   );
 }
