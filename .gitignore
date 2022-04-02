@@ -22,7 +22,10 @@ build.zip
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+survivalsroweb.pub
+survivalsro-web-site.pub
+.github/
+.idea/
 firebase.json
 .firebase/
 .firebaserc
