@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 import SilkroadSurvivalApp from "./silkroad-survival-app";
+import "./i18n";
 
 ReactDOM.render(
   <div>
-    <SilkroadSurvivalApp/>
+    <SilkroadSurvivalApp />
   </div>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-

@@ -49,5 +49,7 @@
   "app.loginInputSingUpError2":"usuario",
   "app.loginInputSingUpError3":"no existe!",
   "app.SingUpPopUpMessage":"Felicitaciones has creado tu cuenta correctamene!",
-  "app.SingUpPopUpMessage1":"Tu ID de cuenta es :"
+  "app.SingUpPopUpMessage1":"Tu ID de cuenta es :",
+
+  "label.guides":"Guías"
 }

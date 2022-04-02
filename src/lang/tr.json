@@ -48,8 +48,7 @@
   "app.SingUpInputSecretQError":"gizli bir soru seçmelisiniz!",
   "app.SingUpInputSecretAError":"gizli bir cevap girmelisiniz!",
   "app.SingUpPopUpMessage":"Tebrikler, hesabınızı başarıyla oluşturdunuz!",
-  "app.SingUpPopUpMessage1":"Hesap kimliğiniz :"
+  "app.SingUpPopUpMessage1":"Hesap kimliğiniz :",
 
-
-
+  "label.guides":"kılavuzlar"
 }

@@ -50,6 +50,7 @@
   "app.loginInputSingUpError2":"username",
   "app.loginInputSingUpError3":"already exist!",
   "app.SingUpPopUpMessage":"Congratulations you have successfully created your account!",
-  "app.SingUpPopUpMessage1":"Your account ID is :"
+  "app.SingUpPopUpMessage1":"Your account ID is :",
 
+  "label.guides":"Guides"
 }
