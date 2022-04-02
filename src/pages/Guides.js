@@ -4,6 +4,7 @@ import TabsListUnstyled from "@mui/base/TabsListUnstyled";
 import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
 import TabUnstyled from "@mui/base/TabUnstyled";
 import IntlTypography from "../components/common/IntlTypography";
+import Guide from "../components/Guide/Guide";
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: "flex",
@@ -75,6 +76,21 @@ const TabPanel = styled(TabPanelUnstyled)`
 `;
 
 const Guides = () => {
+  const levelingData = [
+    {
+      bgUrl:
+        "https://www.rae.es/sites/default/files/styles/wysiwyg_100_/public/2021-07/ramdomtwitter_Mesa%20de%20trabajo%201.png?itok=JfO9YVoD",
+      data: [
+        {
+          videoUrl: "https://www.youtube.com/embed/0156DKSm1V0",
+        },
+        {
+          videoUrl: "url",
+        },
+      ],
+    },
+  ];
+
   return (
     <Container defaultValue={0}>
       <TabContainer>
@@ -86,83 +102,7 @@ const Guides = () => {
         </Tab>
       </TabContainer>
       <TabPanel value={0}>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
-        <p>Lvl up</p>
+        <Guide data={levelingData} />
       </TabPanel>
       <TabPanel value={1}>2</TabPanel>
     </Container>
