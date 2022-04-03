@@ -68,18 +68,18 @@ export default function Main(){
             <Container maxWidth='xl' className={classes.container}>
                 <br/>
                 <Grid container spacing={1}>
-                    <Grid item xl={2} lg={2} xs={12}>
+                    <Grid item xl={3} lg={3} xs={12}>
                         <ServerInfo/>
                         <DownloadBox />
                     </Grid>
-                    <Grid item xl={8} lg={8} xs={12}>
+                    <Grid item xl={9} lg={9} xs={12}>
                         <Carousel>
                             {
                                 items.map((item, index) => <Item key={index} item={item}/>)
                             }
                         </Carousel>
                     </Grid>
-                    <Grid item xl={2} lg={2} xs={12}>
+                    <Grid item xl={0} lg={0} xs={0}>
                         {/*<ServerTimesInfo date={nextCaptureFlagTime} />*/}
                     </Grid>
                 </Grid>
