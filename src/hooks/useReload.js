@@ -1,5 +1,5 @@
 import { UseFetchCreateOrderPayment } from '../helpers/fetchPayment'
-import { UseFetchGetPesoToDollar } from '../helpers/fetchCmfChile'
+//import { UseFetchGetPesoToDollar } from '../helpers/fetchCmfChile'
 import {useContext, useState} from 'react'
 import { UserContext } from './UserContext'
 

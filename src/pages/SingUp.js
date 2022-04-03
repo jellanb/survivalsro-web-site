@@ -16,12 +16,13 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import { useSingUp } from '../hooks/useSingUP';
 import Slide from "@material-ui/core/Slide";
-import BackDropPayment from '../components/common/BackDropPayment';
+import BackDropPayment from '../components/common/progress/BackDropPayment';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { FormattedMessage } from 'react-intl';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -79,7 +80,7 @@ export default function SignUp() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Crear cuenta
+              <FormattedMessage id="app.SingUpTile"/>
             </Typography>
             <form className={classes.form} noValidate>
               <Grid container spacing={2}>
@@ -91,7 +92,7 @@ export default function SignUp() {
                       required
                       fullWidth
                       id="ID usuario"
-                      label="ID usuario"
+                      label=<FormattedMessage id="app.SingUpInputUserId"/>
                       autoFocus
                       onBlur={handleUsernameOnBlur}
                       helperText={ user.errorIsValid ? user.descName : '' }
@@ -103,7 +104,7 @@ export default function SignUp() {
                       required
                       fullWidth
                       id="Nombre"
-                      label="Nombre"
+                      label=<FormattedMessage id="app.SingUpInputName"/>
                       name="Nombre"
                       autoComplete="lname"
                       onBlur={handlerLastNameOnBlur}
@@ -116,7 +117,7 @@ export default function SignUp() {
                       required
                       fullWidth
                       id="email"
-                      label="Email"
+                      label=<FormattedMessage id="app.SingUpInputEmail"/>
                       name="email"
                       autoComplete="email"
                       onBlur={handleEmailOnBlur}
@@ -129,7 +130,7 @@ export default function SignUp() {
                       required
                       fullWidth
                       name="password"
-                      label="Password"
+                      label=<FormattedMessage id="app.SingUpInputPassword"/>
                       type="password"
                       id="password"
                       autoComplete="current-password"
@@ -139,20 +140,29 @@ export default function SignUp() {
                 </Grid>
                 <Grid item xs={12}>
                   <FormControl variant="outlined" className={classes.form}>
-                    <InputLabel id="demo-simple-select-filled-label">Seleccione una pregunta secreta *</InputLabel>
+                    <InputLabel id="demo-simple-select-filled-label"><FormattedMessage id="app.SingUpInputSecretQ"/></InputLabel>
                     <Select
                         labelId="demo-simple-select-filled-label"
                         id="demo-simple-select-filled"
-                        value={user.errorAnswerDesc}
+                        value={user.secretQuestion}
                         onChange={handleChangeSelectSecretQuestion}
-                        label="Seleccione una pregunta secreta *"
+                        label={<FormattedMessage id="app.SingUpInputSecretQ"/>}
                     >
-                      <MenuItem value={'Lugar de nacimiento de la madre'}>Lugar de nacimiento de la madre</MenuItem>
-                      <MenuItem value={'Mejor amigo de la infancia'}>Mejor amigo de la infancia</MenuItem>
-                      <MenuItem value={'Nombre de la primera mascota'}>Nombre de la primera mascota</MenuItem>
-                      <MenuItem value={'Profesor favorito'}>Profesor favorito</MenuItem>
-                      <MenuItem value={'Personaje faborita de la historia'}>Personaje faborita de la historia</MenuItem>
-                      <MenuItem value={'Ocupación de abuelo'}>Ocupación de abuelo</MenuItem>
+                      <MenuItem value="Lugar de nacimiento de la madre">{<FormattedMessage
+                          id="app.SingUpInputSecretQ1"/>}
+                      </MenuItem>
+                      <MenuItem value="Mejor amigo de la infancia">{<FormattedMessage
+                          id="app.SingUpInputSecretQ2"/>}
+                      </MenuItem>
+                      <MenuItem value="Nombre de la primera mascota">{<FormattedMessage
+                          id="app.SingUpInputSecretQ3"/>}
+                      </MenuItem>
+                      <MenuItem value="Personaje faborita de la historia">{<FormattedMessage
+                          id="app.SingUpInputSecretQ4"/>}
+                      </MenuItem>
+                      <MenuItem value="ocupacion del abuelo">{<FormattedMessage
+                          id="app.SingUpInputSecretQ5"/>}
+                      </MenuItem>
                     </Select>
                     <FormHelperText>{user.errorQuestion ? user.errorQuestionDesc : ''}</FormHelperText>
                   </FormControl>
@@ -163,7 +173,7 @@ export default function SignUp() {
                       required
                       fullWidth
                       name="secretAnswer"
-                      label="Respuesta secreta"
+                      label={<FormattedMessage id="app.SingUpInputSecretQ5"/>}
                       type="secretAnswer"
                       id="secretAnswer"
                       autoComplete="current-secretAnswer"
@@ -180,7 +190,7 @@ export default function SignUp() {
                   className={classes.submit}
                   onClick={handleClick}
               >
-                Crear cuenta
+                <FormattedMessage id="app.SingUpButtonCreateAccount"/>
               </Button>
               <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
                 <Button
@@ -189,7 +199,7 @@ export default function SignUp() {
                     color="default"
                     className={classes.submit}
                 >
-                  Volver
+                  <FormattedMessage id="app.SingUpButtonBackHome"/>
                 </Button>
               </Link>
               <Grid container justify="flex-end">
@@ -210,7 +220,7 @@ export default function SignUp() {
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
             >
-              <DialogTitle id="alert-dialog-slide-title">{"Felicitaciones has creado tu cuenta correctamene!"}</DialogTitle>
+              <DialogTitle id="alert-dialog-slide-title">{<FormattedMessage id="app.SingUpPopUpMessage"/>}</DialogTitle>
               <DialogContent>
                 <DialogContentText>{ `Tu ID de cuenta es: ${user.username}` }</DialogContentText>
               </DialogContent>
@@ -231,6 +241,5 @@ export default function SignUp() {
         </Container>
         <BackDropPayment open={load}/>
       </Fragment>
-
   );
 }

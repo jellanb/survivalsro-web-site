@@ -12,7 +12,6 @@ export const UseUniqueKills = () => {
         const columnsNames = await getColumnsNames(data)
         const values = await getUsersRowsValues(data)
         const uniqueQuantity = await getUniqueKillsQuantity(data)
-        console.log(uniqueQuantity)
         setKillInfo(data);
         setColumnName(columnsNames);
         setRowsUsers(values);

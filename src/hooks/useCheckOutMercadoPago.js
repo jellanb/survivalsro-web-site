@@ -24,7 +24,6 @@ export const useCheckOutMercadoPago = (history) => {
 export function useMercadoPagoApi() {
     const [resultPayment, setResultPayment] = useState(undefined);
     const { userCtx } = useContext(UserContext);
-    console.log(userCtx);
     const { MercadoPago } = useScript(
         process.env.REACT_APP_URL_API_MP,
         "MercadoPago"
@@ -65,6 +64,7 @@ export function useMercadoPagoApi() {
                             process.env.REACT_APP_URL_SURVIVALSRO_SERVER,
                             {
                                 // entry point backend
+                                mode:'no-cors',
                                 method: "POST",
                                 headers: {
                                     "Access-Control-Allow-Origin": "*",
@@ -93,6 +93,7 @@ export function useMercadoPagoApi() {
                             .then((data) => setResultPayment(data))
                             .catch((err) => {
                                 setResultPayment(err);
+                                console.log(err.message)
                             });
                     },
                     onFetching: (resource) => {

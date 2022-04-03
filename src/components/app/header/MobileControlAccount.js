@@ -6,7 +6,6 @@ import React from "react";
 
 export default function MobileControlAccount({isSingIn, username, silk}){
     return(
-        // eslint-disable-next-line no-mixed-operators
         isSingIn === false || isSingIn === undefined && username !== null
             ? <Button variant='outlined' color="inherit">
                 <Link style={{ textDecoration: 'none', color: 'black'}} to='/singIn'>Login</Link>

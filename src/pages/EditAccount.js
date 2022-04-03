@@ -14,7 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Button from "@material-ui/core/Button";
 import { UseEditAccount } from '../hooks/useEditAccount'
-import BackDropPayment from "../components/common/BackDropPayment";
+import BackDropPayment from "../components/common/progress/BackDropPayment";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";

@@ -98,8 +98,6 @@ export default function Footer({ description, title }) {
     )
 
     function Partner({classes, container}) {
-        console.log(classes);
-        console.log(container);
         return (
             <Grid item xl={2} lg={6}>
                 <Card className={classes.Card} style={{ border: "none", boxShadow: "none" }}>
