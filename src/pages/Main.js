@@ -80,7 +80,7 @@ export default function Main(){
                         </Carousel>
                     </Grid>
                     <Grid item xl={2} lg={2} xs={12}>
-                        <ServerTimesInfo date={nextCaptureFlagTime} />
+                        {/*<ServerTimesInfo date={nextCaptureFlagTime} />*/}
                     </Grid>
                 </Grid>
                 <br/>
