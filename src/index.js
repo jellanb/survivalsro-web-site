@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import IntlProviderWrapper from "./components/common/IntlProviderWrapper";
-
+import IntlProviderWrapper from './components/common/IntlProviderWrapper';
 
 ReactDOM.render(
   <div>
-          <IntlProviderWrapper/>
+    <IntlProviderWrapper />
   </div>,
   document.getElementById('root')
 );
-

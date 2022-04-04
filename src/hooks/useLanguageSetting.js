@@ -1,11 +1,10 @@
-import {useState} from "react";
+import { useState } from 'react';
 
+export default function UseLanguageSetting() {
+  const [locale, setLocale] = useState(navigator.locale);
 
-export default function UseLanguageSetting(){
-    const [locale, setLocale] = useState(navigator.locale);
-
-    return {
-        locale,
-        setLocale
-    }
+  return {
+    locale,
+    setLocale
+  };
 }
