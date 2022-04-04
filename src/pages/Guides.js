@@ -6,7 +6,7 @@ import TabUnstyled from "@mui/base/TabUnstyled";
 import Guide from "../components/Guide/Guide";
 import { useTranslation } from "react-i18next";
 import { Typography } from "@material-ui/core";
-import { MAX_WIDTH } from "./constants";
+import { MAX_WIDTH } from "../components/Guide/constants";
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: "flex",
