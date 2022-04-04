@@ -3,13 +3,15 @@ import TabsUnstyled from "@mui/base/TabsUnstyled";
 import TabsListUnstyled from "@mui/base/TabsListUnstyled";
 import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
 import TabUnstyled from "@mui/base/TabUnstyled";
-import IntlTypography from "../components/common/IntlTypography";
 import Guide from "../components/Guide/Guide";
+import { useTranslation } from "react-i18next";
+import { Typography } from "@material-ui/core";
+import { MAX_WIDTH } from "./constants";
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: "flex",
-  width: "80%",
-  maxWidth: 1500,
+  width: "90%",
+  maxWidth: MAX_WIDTH,
   height: "fit-content",
   minHeight: "100%",
   margin: "0 auto",
@@ -17,19 +19,23 @@ const Container = styled(TabsUnstyled)(({ theme }) => ({
     flexDirection: "column",
     width: "95%",
   },
+  [theme.breakpoints.down("md")]: {
+    width: "95%",
+  },
 }));
 
 const TabContainer = styled(TabsListUnstyled)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  minWidth: "6em",
   wordWrap: "break-word",
   gap: "0.3em",
-  marginTop: "1em",
-  marginBottom: "1em",
+  marginTop: theme.spacing(1),
+  marginBottom: theme.spacing(1),
   [theme.breakpoints.down("sm")]: {
     flexDirection: "row",
     marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    marginBottom: theme.spacing(-2),
     overflowX: "scroll",
     "::-webkit-scrollbar": {
       width: 0,
@@ -49,6 +55,8 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   fontSize: "1em",
   maxWidth: "10em",
   minHeight: "5em",
+  width: "fit-content",
+  padding: "0.5em",
   textTransform: "capitalize",
   "&.Mui-selected": {
     backgroundColor: "#3c7aa2",
@@ -62,6 +70,7 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
     borderRadius: "1em 1em 0 0",
     borderStyle: "double double none double",
     minWidth: "6em",
+    maxWidth: "none",
   },
 }));
 
@@ -77,11 +86,12 @@ const TabPanel = styled(TabPanelUnstyled)`
 `;
 
 const Guides = () => {
+  const { t } = useTranslation();
+
   const levelingData = {
     sections: [
       {
-        bgUrl:
-          "https://www.rae.es/sites/default/files/styles/wysiwyg_100_/public/2021-07/ramdomtwitter_Mesa%20de%20trabajo%201.png?itok=JfO9YVoD",
+        bgUrl: "http://i.epvpimg.com/ieNjdab.png",
         annexes: [
           {
             video: {
@@ -98,7 +108,7 @@ const Guides = () => {
             text: {
               value:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id sem et nisi ultricies viverra. Duis sagittis viverra pulvinar. Maecenas eget leo maximus, pulvinar massa et, consectetur enim. Mauris ut ligula cursus, bibendum mi quis, hendrerit est. Fusce ornare nisi ac mauris pharetra placerat. Aenean et fringilla arcu, quis accumsan libero. Etiam neque ipsum, iaculis quis malesuada et, consequat in lorem. Sed non nisl vel arcu bibendum congue ornare sit amet ipsum. Duis vel tempor libero. Vestibulum nec sagittis dolor, at convallis sem. Vestibulum quis ipsum vel urna fringilla cursus ac eu orci.",
-              width: 250,
+              width: "100%",
               size: 1,
             },
           },
@@ -111,12 +121,9 @@ const Guides = () => {
               url: "https://s2.coinmarketcap.com/static/img/coins/64x64/3388.png",
               size: 5,
             },
-            position: {
-              x: 50,
-              y: 50,
-            },
           },
         ],
+        height: 550,
       },
     ],
   };
@@ -125,10 +132,7 @@ const Guides = () => {
     <Container defaultValue={0}>
       <TabContainer>
         <Tab>
-          <IntlTypography text='install' />
-        </Tab>
-        <Tab>
-          <IntlTypography text='guide' />
+          <Typography>{t("installing")}</Typography>
         </Tab>
       </TabContainer>
       <TabPanel value={0}>

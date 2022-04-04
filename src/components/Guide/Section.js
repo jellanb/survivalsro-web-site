@@ -1,17 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import { styled } from "@material-ui/core";
 import PropTypes from "prop-types";
+import { MAX_WIDTH } from "./constants";
 
-const MAX_WIDTH = 720;
+const ADJUST_PER = 1.1;
 
 const Container = styled("div")(({ theme }) => ({
   position: "relative",
   with: "100%",
   minHeight: "1em",
-}));
-
-const Background = styled("img")(({ theme }) => ({
-  with: "100%",
+  backgroundSize: "contain",
+  backgroundRepeat: "no-repeat",
+  width: "100%",
 }));
 
 const Annex = styled("div")(({ theme }) => ({
@@ -32,7 +32,7 @@ const AnnexText = styled("span")(({ theme }) => ({
   minHeight: "1em",
 }));
 
-const Section = ({ bgUrl, annexes }) => {
+const Section = ({ bgUrl, annexes, height }) => {
   const [containerSize, setContainerSize] = useState(0);
   const containerRef = useRef(null);
 
@@ -54,10 +54,17 @@ const Section = ({ bgUrl, annexes }) => {
     return (containerSize * initialWidth) / MAX_WIDTH;
   };
 
+  const calcSizeSpec = (initialSize) => {
+    return ((containerSize * initialSize) / MAX_WIDTH) * ADJUST_PER;
+  };
+
   return (
     <Container
       ref={containerRef}
-      style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : {}}
+      style={{
+        ...(bgUrl ? { backgroundImage: `url(${bgUrl})` } : {}),
+        ...(height ? { height: `${height}px` } : {}),
+      }}
     >
       {annexes &&
         annexes.map((annex) => {
@@ -79,12 +86,12 @@ const Section = ({ bgUrl, annexes }) => {
               {video && (
                 <iframe
                   src={video.url}
-                  width={video.width}
-                  height={video.height}
+                  width={calcSizeSpec(video.width)}
+                  height={calcSizeSpec(video.height)}
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               )}
 
@@ -102,7 +109,13 @@ const Section = ({ bgUrl, annexes }) => {
                 <AnnexText
                   style={{
                     fontSize: `${text.size}em`,
-                    width: `${text.width | "auto"}px`,
+                    width: `${
+                      text.width
+                        ? typeof text.width === "string"
+                          ? text.width
+                          : `${text.width}px`
+                        : "auto"
+                    }`,
                     color: `${text.color | "auto"}px`,
                   }}
                 >
@@ -131,7 +144,7 @@ Section.prototype = {
       }),
       text: PropTypes.shape({
         value: PropTypes.string,
-        width: PropTypes.number,
+        width: PropTypes.number | PropTypes.string,
         color: PropTypes.string,
       }),
       position: PropTypes.shape({
@@ -140,6 +153,7 @@ Section.prototype = {
       }),
     })
   ),
+  height: PropTypes.number,
 };
 
 export default Section;
