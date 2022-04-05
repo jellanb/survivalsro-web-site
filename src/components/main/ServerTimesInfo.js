@@ -22,10 +22,14 @@ const useStyles = makeStyles({
         fontSize: 14,
         color: 'white'
     },
+    timeServer:{
+        alignItems: 'flex-start'
+    }
 });
 
-export default function ServerTimesInfo({date}) {
+export default function ServerTimesInfo({serverTime}) {
     const classes = useStyles();
+    const time = Date.parse(serverTime)
     return (
         <Fragment>
             <Card className={classes.root}>
@@ -38,13 +42,8 @@ export default function ServerTimesInfo({date}) {
                             <ListItemText primary={<b><FormattedMessage id="app.ServerTime" /></b>} >
                             </ListItemText>
                         </ListItem>
-                        <ListItem divider='false'>
-                            <ListItemText >
-                                <p>{'2022/03/20'}</p>
-                            </ListItemText>
-                            <ListItemText >
-                                <Clock format={'HH:mm:ss'} ticking={true} timezone={'America/Santiago'} />
-                            </ListItemText>
+                        <ListItem divider='false' style={{display:'flex', justifyContent:'center'}}>
+                            <Clock className={classes.timeServer} format={'HH:mm:ss'} ticking={true} date={time}/>
                         </ListItem>
                         {/*<ListItem divider='true' dense='true'>
                             <ListItemAvatar >
@@ -54,7 +53,7 @@ export default function ServerTimesInfo({date}) {
                             </ListItemText>
                             <Countdown date={date} />
                         </ListItem>*/}
-                        <ListItem divider='true' dense='true'>
+                        {/*<ListItem divider='true' dense='true'>
                             <ListItemAvatar >
                                 <BsFillFlagFill/>
                             </ListItemAvatar>
