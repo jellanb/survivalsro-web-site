@@ -1,12 +1,13 @@
 import { useState, useContext } from 'react';
 import { UserFetchLogin, UseFetchUsersByName } from '../helpers/fetchUsers';
 import { UserContext } from '../hooks/UserContext';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 export const useSingIn = () => {
   const [user, setUser] = useState({});
   const [load, setLoad] = useState(false);
   const { userCtx, setUserCtx } = useContext(UserContext);
+  const { t } = useTranslation();
 
   const handleLogoutClick = () => {
     setUserCtx({ ...userCtx, username: undefined, silk: undefined, isSingIn: false, description: '', url: '' });
@@ -18,7 +19,7 @@ export const useSingIn = () => {
     const value = e.target.value;
     const result = await UseFetchUsersByName(value);
     if (!value) {
-      setUser({ ...user, errorIsValid: true, descName: <FormattedMessage id="app.loginInputSingInError" /> });
+      setUser({ ...user, errorIsValid: true, descName: t('app.loginInputSingInError') });
       setLoad(false);
       return;
     }
@@ -30,9 +31,9 @@ export const useSingIn = () => {
       function getMessageError() {
         return (
           <div>
-            <FormattedMessage id="app.loginInputSingInError2" />
+            {t('app.loginInputSingInError2')}
             {`  ${value}  `}
-            <FormattedMessage id="app.loginInputSingInError3" />
+            {t('app.loginInputSingInError3')}
           </div>
         );
       }

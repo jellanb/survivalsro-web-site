@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import { UseFetchUsersByName, UserFetchEmailByEmail, UseFetchAddUser } from '../helpers/fetchUsers';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 export const useSingUp = () => {
   const [user, setUser] = useState({});
   const [load, setLoad] = useState(false);
   const [dialog, setDialog] = useState(false);
+  const { t } = useTranslation();
 
   const createNewUser = async (e) => {
     e.preventDefault();
     setLoad(true);
 
     if (user.username === undefined || user.username === '') {
-      setUser({ ...user, errorIsValid: true, descName: <FormattedMessage id="app.SingUpInputUserIdError" /> });
+      setUser({ ...user, errorIsValid: true, descName: t('app.SingUpInputUserIdError') });
       setLoad(false);
       return;
     }
     if (user.lastName === undefined || user.lastName === '') {
-      setUser({ ...user, errorLastname: true, descLast: <FormattedMessage id="app.SingUpInputNameError" /> });
+      setUser({ ...user, errorLastname: true, descLast: t('app.SingUpInputNameError') });
       setLoad(false);
       return;
     }
     if (user.email === undefined || user.email === '') {
-      setUser({ ...user, errorEmail: true, descEmail: <FormattedMessage id="app.SingUpInputEmailError" /> });
+      setUser({ ...user, errorEmail: true, descEmail: t('app.SingUpInputEmailError') });
       setLoad(false);
       return;
     }
     if (user.password === undefined || user.password === '') {
-      setUser({ ...user, errorPass: true, descPass: <FormattedMessage id="app.SingUpInputPassError" /> });
+      setUser({ ...user, errorPass: true, descPass: t('app.SingUpInputPassError') });
       setLoad(false);
       return;
     }
@@ -35,7 +36,7 @@ export const useSingUp = () => {
       setUser({
         ...user,
         errorQuestion: true,
-        errorQuestionDesc: <FormattedMessage id="app.SingUpInputSecretQError" />
+        errorQuestionDesc: t('app.SingUpInputSecretQError')
       });
       setLoad(false);
       return;
@@ -58,7 +59,7 @@ export const useSingUp = () => {
     setLoad(true);
 
     if (!value) {
-      setUser({ ...user, errorIsValid: true, descName: <FormattedMessage id="app.SingUpInputUserIdError" /> });
+      setUser({ ...user, errorIsValid: true, descName: t('app.SingUpInputUserIdError') });
       setLoad(false);
       return;
     }
@@ -71,9 +72,9 @@ export const useSingUp = () => {
       function getMessageError() {
         return (
           <div>
-            <FormattedMessage id="app.loginInputSingUpError2" />
+            {t('app.loginInputSingUpError2')}
             {`  ${value}  `}
-            <FormattedMessage id="app.loginInputSingUpError3" />
+            {t('app.loginInputSingUpError3')}
           </div>
         );
       }
@@ -87,7 +88,7 @@ export const useSingUp = () => {
     if (value) {
       setUser({ ...user, lastName: value, errorLastname: false, descLast: '' });
     } else {
-      setUser({ ...user, errorLastname: true, descLast: <FormattedMessage id="app.SingUpInputNameError" /> });
+      setUser({ ...user, errorLastname: true, descLast: t('app.SingUpInputNameError') });
     }
   };
 
@@ -106,7 +107,7 @@ export const useSingUp = () => {
       setUser({ ...user, email: value, errorEmail: false, descEmail: '' });
       setLoad(false);
     } else {
-      setUser({ ...user, errorEmail: true, descEmail: <FormattedMessage id="app.SingUpInputEmailError2" /> });
+      setUser({ ...user, errorEmail: true, descEmail: t('app.SingUpInputEmailError2') });
       setLoad(false);
     }
   };
@@ -120,7 +121,7 @@ export const useSingUp = () => {
         ...user,
         password: password,
         errorPass: true,
-        descPass: <FormattedMessage id="app.SingUpInputPassError" />
+        descPass: t('app.SingUpInputPassError')
       });
     }
   };
@@ -134,7 +135,7 @@ export const useSingUp = () => {
       setUser({
         ...user,
         errorQuestion: true,
-        errorQuestionDesc: <FormattedMessage id="app.SingUpInputSecretQError" />
+        errorQuestionDesc: t('app.SingUpInputSecretQError')
       });
     }
   };
@@ -144,7 +145,7 @@ export const useSingUp = () => {
     if (answer || answer.length > 0) {
       setUser({ ...user, secretAnswer: answer.toString(), errorAnswer: false, errorAnswerDesc: '' });
     } else {
-      setUser({ ...user, errorAnswer: true, errorAnswerDesc: <FormattedMessage id="app.SingUpInputSecretAError" /> });
+      setUser({ ...user, errorAnswer: true, errorAnswerDesc: t('app.SingUpInputSecretAError') });
     }
   };
 

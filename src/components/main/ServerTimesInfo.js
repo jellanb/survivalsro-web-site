@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import Clock from 'react-live-clock';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
 import ServerClock from "./server-time/ServerClock";
 
@@ -36,6 +36,7 @@ const useStyles = makeStyles({
 });
 
 export default function ServerTimesInfo({serverTime}) {
+  const {t} = useTranslation();
     const classes = useStyles();
     const time = Date.parse(serverTime)
 
@@ -48,7 +49,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar>
                                 <GiClockwork/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.ServerTime" /></b>} >
+                            <ListItemText primary={<b>{t("app.ServerTime")}</b>} >
                             </ListItemText>
                         </ListItem>
                             <ListItem divider='false' style={{display: 'flex', justifyContent: 'center'}}>
@@ -58,7 +59,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiIndiaGate/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.Ftw.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.Ftw.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date} />
                         </ListItem>*/}
@@ -74,7 +75,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiBattleAxe/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.ARN.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.ARN.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>
@@ -82,7 +83,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiSnakeTotem/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.snk.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.snk.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date} />
                         </ListItem>
@@ -90,7 +91,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiEgyptianSphinx/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.isis.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.isis.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>
@@ -98,7 +99,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiEgyptianProfile/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.anu.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.anu.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>
@@ -106,7 +107,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiEgyptianWalk/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.nei.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.nei.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>
@@ -114,7 +115,7 @@ export default function ServerTimesInfo({serverTime}) {
                             <ListItemAvatar >
                                 <GiScarecrow/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b><FormattedMessage id="app.sel.Time" /></b>} >
+                            <ListItemText primary={<b>{t('app.sel.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>*/}

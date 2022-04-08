@@ -21,7 +21,7 @@ export default function Reload({ history }) {
   const { makePayment, load, setLoad, SilkRatio, setUserCtx, userCtx, getDollarValueToPeso } = useReload(history);
 
   return (
-    <React.Fragment>
+    <div>
       <CssBaseline />
       <Container maxWidth="xl" component="main" className={classes.main}>
         <Grid container spacing={1}>
@@ -45,6 +45,6 @@ export default function Reload({ history }) {
         </Grid>
       </Container>
       <BackDropPayment open={load} />
-    </React.Fragment>
+    </div>
   );
 }

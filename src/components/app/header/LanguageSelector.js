@@ -1,16 +1,13 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { IconButton } from '@mui/material';
 import { IconFlagES, IconFlagUS, IconFlagTR } from 'material-ui-flags';
-import Spanish from '../../../lang/es.json';
-import Turk from '../../../lang/tr.json';
-import English from '../../../lang/en.json';
-import { FormattedMessage } from 'react-intl';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import { COOKIE_LANGUAGE_KEY } from '../../../constants';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -42,23 +39,26 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SelectionLength({ setMessage, locale, setLocale }) {
+export default function LanguageSelector() {
+  const { i18n } = useTranslation();
   const classes = useStyles();
+
   const handleChange = (event) => {
     switch (event.target.value) {
-      case 'en-US': {
-        setLocale('en-US');
-        setMessage(English);
+      case 'en': {
+        i18n.changeLanguage('en');
+        localStorage.setItem(COOKIE_LANGUAGE_KEY, 'en');
         break;
       }
-      case 'es-ES': {
-        setLocale('es-ES');
-        setMessage(Spanish);
+      case 'tr': {
+        i18n.changeLanguage('tr');
+        localStorage.setItem(COOKIE_LANGUAGE_KEY, 'tr');
         break;
       }
-      case 'tr-TR': {
-        setLocale('tr-TR');
-        setMessage(Turk);
+      case 'es':
+      default: {
+        i18n.changeLanguage('es');
+        localStorage.setItem(COOKIE_LANGUAGE_KEY, 'es');
         break;
       }
     }
@@ -68,24 +68,24 @@ export default function SelectionLength({ setMessage, locale, setLocale }) {
     <Box sx={{ minWidth: 30 }} className={classes.toolbar}>
       <FormControl>
         <Select
-          dropDownMenuProps={classes.toolbar}
+          className={classes.toolbar}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={locale}
+          value={i18n.language}
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={'es-ES'}>
+          <MenuItem value={'es'}>
             <IconButton>
               <IconFlagES />
             </IconButton>
           </MenuItem>
-          <MenuItem value={'en-US'}>
+          <MenuItem value={'en'}>
             <IconButton>
               <IconFlagUS />
             </IconButton>
           </MenuItem>
-          <MenuItem value={'tr-TR'}>
+          <MenuItem value={'tr'}>
             <IconButton>
               <IconFlagTR />
             </IconButton>
