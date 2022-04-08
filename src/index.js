@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import IntlProviderWrapper from './components/common/IntlProviderWrapper';
+import SilkroadSurvivalApp from './silkroad-survival-app';
+import './i18n';
 
-ReactDOM.render(
-  <div>
-    <IntlProviderWrapper />
-  </div>,
-  document.getElementById('root')
-);
+ReactDOM.render(<SilkroadSurvivalApp />, document.getElementById('root'));
