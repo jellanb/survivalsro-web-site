@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { styled } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { MAX_WIDTH } from './constants';
+import { MAX_WIDTH } from '../../constants';
 
 const ADJUST_PER = 1.1;
 
