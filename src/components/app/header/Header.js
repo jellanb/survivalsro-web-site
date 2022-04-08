@@ -16,6 +16,7 @@ import Box from '@mui/material/Box';
 import MobileMenuButton from './MobileMenuButton';
 import { FormattedMessage } from 'react-intl';
 import SelectionLength from './SelectionLeng';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header({ setMessage, locale, setLocale }) {
+  const { t } = useTranslation();
   const classes = useStyles();
   const { userCtx } = useContext(UserContext);
   const { username, silk, isSingIn } = userCtx;
@@ -66,11 +68,11 @@ export default function Header({ setMessage, locale, setLocale }) {
                   <FormattedMessage id="app.buttonMain" />
                 </Link>
               </Button>
-              {/*<Button>
-                            <Link style={{ textDecoration: 'none', color: 'white'}} to='/ranking'>
-                                Ranking
-                            </Link>
-                        </Button>*/}
+              <Button>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to="/guides">
+                  {t('guides')}
+                </Link>
+              </Button>
               <Button>
                 <Link style={{ textDecoration: 'none', color: 'white' }} to="/download">
                   <FormattedMessage id="app.buttonDownload" />
