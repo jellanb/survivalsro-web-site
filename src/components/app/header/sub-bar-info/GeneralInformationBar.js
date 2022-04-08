@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { GiDeathZone } from 'react-icons/gi';
 import GroupIcon from '@material-ui/icons/Group';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles({
   main: {
@@ -22,7 +22,9 @@ const useStyles = makeStyles({
 });
 
 export default function GeneralInformationBar({ fortressInfo, userLastKill, usersOnlineCount }) {
+  const { t } = useTranslation();
   const classes = useStyles();
+
   return (
     <Fragment>
       <AppBar position="static" className={classes.main}>
@@ -39,7 +41,7 @@ export default function GeneralInformationBar({ fortressInfo, userLastKill, user
             <Grid item xl={3} lg={3} xs={3}>
               <Typography variant="h6" color={'secondary'}>
                 <GroupIcon />
-                <FormattedMessage id="app.barUsersOnline" />
+                {t('app.barUsersOnline')}
                 {`: ${usersOnlineCount}`}
               </Typography>
             </Grid>
