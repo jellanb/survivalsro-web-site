@@ -33,3 +33,4 @@ firebase.json
 ca.crt
 ca.key
 firebase-debug.log
+package.json
