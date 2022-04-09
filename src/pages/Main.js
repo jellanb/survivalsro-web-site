@@ -40,77 +40,88 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Main() {
-  const classes = useStyles();
-  const [load, setLoad] = useState(true);
-  const [openDialog, setOpenDialog] = useState(false);
-  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, nextCaptureFlagTime } = UseFortesBarIndo();
-  var items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
+export default function Main(){
+    const classes = useStyles();
+    const [load, setLoad] = useState(true);
+    const [openDialog, setOpenDialog] = useState(false);
+    const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, nextCaptureFlagTime, systemTime } = UseFortesBarIndo();
+    var items = [
+        {imagen: imagenFond2},
+        {imagen: imagenFond3},
+        {imagen: imagenFond4},
+        {imagen: imagenFond5},
+    ]
 
   const handleClose = async () => {
     setOpenDialog(false);
   };
 
-  useEffect(() => {
+  useEffect( () => {
     loadInformation(setLoad);
   }, []);
 
-  return (
-    <Fragment>
-      <CssBaseline />
-      <GeneralInformationBar
-        fortressInfo={fortressInfo}
-        userLastKill={userLastKill}
-        usersOnlineCount={usersOnlineCount}
-      />
-      <Container maxWidth="xl" className={classes.container}>
-        <br />
-        <Grid container spacing={1}>
-          <Grid item xl={3} lg={3} xs={12}>
-            <ServerInfo />
-            <DownloadBox />
-          </Grid>
-          <Grid item xl={9} lg={9} xs={12}>
-            <Carousel>
-              {items.map((item, index) => (
-                <Item key={index} item={item} />
-              ))}
-            </Carousel>
-          </Grid>
-          <Grid item xl={0} lg={0} xs={0}>
-            {/*<ServerTimesInfo date={nextCaptureFlagTime} />*/}
-          </Grid>
-        </Grid>
-        <br />
-      </Container>
-      <div>
-        <Dialog
-          open={openDialog}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">{'please reload page!'}</DialogTitle>
-          <DialogContent></DialogContent>
-          <DialogActions>
-            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              <Button fullWidth variant="contained" color="primary" className={classes.submit}>
-                Aceptar
-              </Button>
-            </Link>
-          </DialogActions>
-        </Dialog>
-      </div>
-      <BackDropPayment open={load} />
-    </Fragment>
-  );
-  function Item({ item }) {
-    return (
-      <Card className={classes.rootCard}>
-        <CardMedia image={item.imagen} className={classes.media} />
-      </Card>
-    );
-  }
+    return(
+        <Fragment>
+        <CssBaseline />
+            <GeneralInformationBar fortressInfo={fortressInfo} userLastKill={userLastKill} usersOnlineCount={usersOnlineCount} />
+            <Container maxWidth='xl' className={classes.container}>
+                <br/>
+                <Grid container spacing={1}>
+                    <Grid item xl={3} lg={3} xs={12}>
+                        <ServerInfo/>
+                        <DownloadBox />
+                    </Grid>
+                    <Grid item xl={7} lg={7} xs={12}>
+                        <Carousel>
+                            {
+                                items.map((item, index) => <Item key={index} item={item}/>)
+                            }
+                        </Carousel>
+                    </Grid>
+                    <Grid item xl={2} lg={2} xs={12}>
+                        <ServerTimesInfo open={load} serverTime={systemTime} />
+                    </Grid>
+                </Grid>
+                <br/>
+            </Container>
+            <div>
+                <Dialog
+                    open={openDialog}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-labelledby='alert-dialog-slide-title'
+                    aria-describedby='alert-dialog-slide-description'
+                >
+                    <DialogTitle id='alert-dialog-slide-title'>{'please reload page!'}</DialogTitle>
+                    <DialogContent>
+                    </DialogContent>
+                    <DialogActions>
+                        <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
+                            <Button
+                                fullWidth
+                                variant='contained'
+                                color='primary'
+                                className={classes.submit}
+                            >
+                                Aceptar
+                            </Button>
+                        </Link>
+                    </DialogActions>
+                </Dialog>
+            </div>
+            <BackDropPayment open={load} />
+            </Fragment>
+    )
+    function Item({item})
+    {
+        return(
+                    <Card className={classes.rootCard}>
+                        <CardMedia
+                        image={item.imagen}
+                        className={classes.media}
+                        />
+                    </Card>
+        )
+    }
 }
