@@ -3,7 +3,7 @@ import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
-import Guide from '../components/Guide/Guide';
+import Installation from '../components/Guide/Installation';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
@@ -88,55 +88,15 @@ const TabPanel = styled(TabPanelUnstyled)`
 const Guides = () => {
   const { t } = useTranslation();
 
-  const levelingData = {
-    sections: [
-      {
-        bgUrl: 'http://i.epvpimg.com/ieNjdab.png',
-        annexes: [
-          {
-            video: {
-              url: 'https://www.youtube.com/embed/0156DKSm1V0',
-              width: 600,
-              height: 400
-            }
-          }
-        ]
-      },
-      {
-        annexes: [
-          {
-            text: {
-              value:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id sem et nisi ultricies viverra. Duis sagittis viverra pulvinar. Maecenas eget leo maximus, pulvinar massa et, consectetur enim. Mauris ut ligula cursus, bibendum mi quis, hendrerit est. Fusce ornare nisi ac mauris pharetra placerat. Aenean et fringilla arcu, quis accumsan libero. Etiam neque ipsum, iaculis quis malesuada et, consequat in lorem. Sed non nisl vel arcu bibendum congue ornare sit amet ipsum. Duis vel tempor libero. Vestibulum nec sagittis dolor, at convallis sem. Vestibulum quis ipsum vel urna fringilla cursus ac eu orci.',
-              width: '100%',
-              size: 1
-            }
-          }
-        ]
-      },
-      {
-        annexes: [
-          {
-            image: {
-              url: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3388.png',
-              size: 5
-            }
-          }
-        ],
-        height: 550
-      }
-    ]
-  };
-
   return (
     <Container defaultValue={0}>
       <TabContainer>
         <Tab>
-          <Typography>{t('installing')}</Typography>
+          <Typography>{t('installation')}</Typography>
         </Tab>
       </TabContainer>
       <TabPanel value={0}>
-        <Guide sections={levelingData.sections} />
+        <Installation />
       </TabPanel>
       <TabPanel value={1}>2</TabPanel>
     </Container>
