@@ -109,7 +109,7 @@ export default function Pricing() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <div>
       <CssBaseline />
       <Container maxWidth="xl" className={classes.containedMain}>
         <Container maxWidth="sm" component="main" className={classes.heroContent}>
@@ -183,6 +183,6 @@ export default function Pricing() {
         <br></br>
         <br></br>
       </Container>
-    </React.Fragment>
+    </div>
   );
 }

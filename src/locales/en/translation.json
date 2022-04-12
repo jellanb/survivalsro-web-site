@@ -50,5 +50,11 @@
   "app.loginInputSingUpError2": "username",
   "app.loginInputSingUpError3": "already exist!",
   "app.SingUpPopUpMessage": "Congratulations you have successfully created your account!",
-  "app.SingUpPopUpMessage1": "Your account ID is :"
+  "app.SingUpPopUpMessage1": "Your account ID is :",
+  "guides": "Guides",
+  "leveling": "Leveling",
+
+  "installation": "Installation",
+  "installation.guide.title": "Installation Guide",
+  "installation.guide.text1": "For the most common installation process, it is only necessary to download the files from our download section and extract the files. However, many users reported inconveniences due to the intrusion of antivirus or windows defender. For this reason we have made this section to explain how to delete Survival Silkroad files and not have any problems."
 }

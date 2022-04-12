@@ -79,7 +79,7 @@ export default function Footer({ description, title }) {
           <Typography variant="subtitle1" align="center">
             PARTNERS
             {parnets.map((container, index) => (
-              <div className={classes.root} align={'center'}>
+              <div className={classes.root} align={'center'} key={index}>
                 <Grid>
                   <Partner key={index} classes={classes} container={container} />
                 </Grid>

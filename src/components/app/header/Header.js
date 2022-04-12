@@ -14,8 +14,8 @@ import ControlAccount from './ControlAccount';
 import { UserContext } from '../../../hooks/UserContext';
 import Box from '@mui/material/Box';
 import MobileMenuButton from './MobileMenuButton';
-import { FormattedMessage } from 'react-intl';
-import SelectionLength from './SelectionLeng';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -46,12 +46,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header({ setMessage, locale, setLocale }) {
+  const { t } = useTranslation();
   const classes = useStyles();
   const { userCtx } = useContext(UserContext);
   const { username, silk, isSingIn } = userCtx;
 
   return (
-    <React.Fragment>
+    <header>
       <AppBar position="static" className={classes.toolbar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -63,39 +64,39 @@ export default function Header({ setMessage, locale, setLocale }) {
             <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">
               <Button>
                 <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-                  <FormattedMessage id="app.buttonMain" />
+                  {t('app.buttonMain')}
                 </Link>
               </Button>
-              {/*<Button>
-                            <Link style={{ textDecoration: 'none', color: 'white'}} to='/ranking'>
-                                Ranking
-                            </Link>
-                        </Button>*/}
+              <Button>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to="/guides">
+                  {t('guides')}
+                </Link>
+              </Button>
               <Button>
                 <Link style={{ textDecoration: 'none', color: 'white' }} to="/download">
-                  <FormattedMessage id="app.buttonDownload" />
+                  {t('app.buttonDownload')}
                 </Link>
               </Button>
               <Button>
                 <Link style={{ textDecoration: 'none', color: 'white' }} to="/politics">
-                  <FormattedMessage id="app.buttonPolitic" />
+                  {t('app.buttonPolitic')}
                 </Link>
               </Button>
               {username ? (
                 <Button>
                   <Link style={{ textDecoration: 'none', color: 'white' }} to="/Reload">
-                    <FormattedMessage id="app.buttonReload" />
+                    {t('app.buttonReload')}
                   </Link>
                 </Button>
               ) : (
                 <Button>
                   <Link style={{ textDecoration: 'none', color: 'white' }} to="/SingUp">
-                    <FormattedMessage id="app.buttonSingUp" />
+                    {t('app.buttonSingUp')}
                   </Link>
                 </Button>
               )}
               <ControlAccount username={username} silk={silk} isSingIn={isSingIn} />
-              <SelectionLength setMessage={setMessage} locale={locale} setLocale={setLocale} />
+              <LanguageSelector />
             </ButtonGroup>
           </Box>
           <Box component="span" sx={{ display: { xl: 'none', md: 'none', sm: 'block', xs: 'block' } }}>
@@ -103,7 +104,7 @@ export default function Header({ setMessage, locale, setLocale }) {
           </Box>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </header>
   );
 }
 

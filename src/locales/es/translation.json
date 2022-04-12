@@ -49,5 +49,14 @@
   "app.loginInputSingUpError2": "usuario",
   "app.loginInputSingUpError3": "no existe!",
   "app.SingUpPopUpMessage": "Felicitaciones has creado tu cuenta correctamene!",
-  "app.SingUpPopUpMessage1": "Tu ID de cuenta es :"
+  "app.SingUpPopUpMessage1": "Tu ID de cuenta es :",
+
+  "guides": "Guías",
+  "leveling": "Leveling",
+  "windows7": "Windows 7",
+  "windows10": "Windows 10",
+
+  "installation": "Instalación",
+  "installation.guide.title": "Guia de instalación",
+  "installation.guide.text1": "Para el proceso de instalación mas comun, solo es necesario la descarga de los archivos desde nuestra sección de descarga y la extracción de los archivos. Sin embargo muchos usuarios an reportado inconvenientes por intromision del antivirus o windows defenter. Por esta razón realizamos esta sección para explicarles como excluir los archivos de Survival Silkroad y no tener problema alguno"
 }
