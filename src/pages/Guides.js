@@ -7,6 +7,7 @@ import Installation from '../components/Guide/Installation';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
+import { Fragment } from 'react';
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: 'flex',
@@ -89,17 +90,20 @@ const Guides = () => {
   const { t } = useTranslation();
 
   return (
-    <Container defaultValue={0}>
-      <TabContainer>
-        <Tab>
-          <Typography>{t('installation')}</Typography>
-        </Tab>
-      </TabContainer>
-      <TabPanel value={0}>
-        <Installation />
-      </TabPanel>
-      <TabPanel value={1}>2</TabPanel>
-    </Container>
+    <Fragment>
+      <br />
+      <Container defaultValue={0}>
+        <TabContainer>
+          <Tab>
+            <Typography>{t('installation')}</Typography>
+          </Tab>
+        </TabContainer>
+        <TabPanel value={0}>
+          <Installation />
+        </TabPanel>
+        <TabPanel value={1}>2</TabPanel>
+      </Container>
+    </Fragment>
   );
 };
 

@@ -15,7 +15,6 @@ const Container = styled('div')(({ theme }) => ({
 
 const Main = styled('div')(({ theme }) => ({
   width: 'auto',
-  margin: '1em 0',
   backgroundColor: 'white'
 }));
 
