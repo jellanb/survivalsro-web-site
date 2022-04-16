@@ -51,5 +51,13 @@
   "app.SingUpPopUpMessage1": "Hesap kimliğiniz :",
 
   "guides": "kılavuzlar",
-  "leveling": "tesviye"
+  "leveling": "tesviye",
+  "app.SingUpPopUpMessage1": "Hesap kimliğiniz :",
+
+  "guides": "kılavuzlar",
+  "leveling": "tesviye",
+
+  "installation": "Tesis",
+  "installation.guide.title": "Yükleme Rehberi",
+  "installation.guide.text1": "En yaygın kurulum işlemi için sadece indirme bölümümüzden dosyaları indirip dosyaları çıkartmanız yeterlidir. Ancak, birçok kullanıcı virüsten koruma yazılımının veya Windows Defender'ın izinsiz girişinden kaynaklanan rahatsızlıklar bildirdi. Bu sebeple bu bölümü Survival Silkroad dosyalarının nasıl silineceğini ve herhangi bir sorun yaşamamak için yaptık."
 }

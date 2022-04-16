@@ -20,6 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Clock from 'react-live-clock';
 import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
+import ServerClock from "./server-time/ServerClock";
 
 const useStyles = makeStyles({
   root: {
@@ -33,9 +34,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ServerTimesInfo({ date }) {
+export default function ServerTimesInfo({ serverTime }) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const time = Date.parse(serverTime);
 
   return (
     <Fragment>
@@ -48,29 +50,30 @@ export default function ServerTimesInfo({ date }) {
               </ListItemAvatar>
               <ListItemText primary={<b>{t('app.ServerTime')}</b>}></ListItemText>
             </ListItem>
-            <ListItem divider="false">
-              <ListItemText>
-                <p>{'2022/03/20'}</p>
-              </ListItemText>
-              <ListItemText>
-                <Clock format={'HH:mm:ss'} ticking={true} timezone={'America/Santiago'} />
-              </ListItemText>
+            <ListItem divider="false" style={{ display: 'flex', justifyContent: 'center' }}>
+              <ServerClock time={time} />
             </ListItem>
             {/*<ListItem divider='true' dense='true'>
                             <ListItemAvatar >
                                 <GiIndiaGate/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b>{t('app.Ftw.Time')}'</b>} >
+                            <ListItemText primary={<b><FormattedMessage id="app.Ftw.Time" /></b>} >
                             </ListItemText>
                             <Countdown date={date} />
                         </ListItem>*/}
-            <ListItem divider="true" dense="true">
+            {/*<ListItem divider="true" dense="true">
               <ListItemAvatar>
                 <BsFillFlagFill />
               </ListItemAvatar>
-              <ListItemText primary={<b>{t('app.CTF.Time')}</b>}></ListItemText>
+              <ListItemText
+                primary={
+                  <b>
+                    <FormattedMessage id="app.CTF.Time" />
+                  </b>
+                }
+              ></ListItemText>
               <Countdown date={date} />
-            </ListItem>
+            </ListItem>*/}
             {/*<ListItem divider='true' dense='true'>
                             <ListItemAvatar >
                                 <GiBattleAxe/>
@@ -99,7 +102,7 @@ export default function ServerTimesInfo({ date }) {
                             <ListItemAvatar >
                                 <GiEgyptianProfile/>
                             </ListItemAvatar>
-                            <ListItemText primary={<b>{t('app.anu.Time')}'</b>} >
+                            <ListItemText primary={<b><FormattedMessage id="app.anu.Time" /></b>} >
                             </ListItemText>
                             <Countdown date={date}/>
                         </ListItem>

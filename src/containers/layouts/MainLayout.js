@@ -9,17 +9,19 @@ const Container = styled('div')(({ theme }) => ({
   height: '100%',
   '& > footer': {
     marginTop: 'auto'
-  }
+  },
+  backgroundColor: 'white'
 }));
 
 const Main = styled('div')(({ theme }) => ({
   width: 'auto',
-  margin: '1em 0'
+  margin: '1em 0',
+  backgroundColor: 'white'
 }));
 
 const MainLayout = ({ children }) => {
   return (
-    <Container>
+    <Container >
       <CssBaseline />
       <Header />
       <Main>{children}</Main>
