@@ -44,8 +44,7 @@ export default function Main() {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [openDialog, setOpenDialog] = useState(false);
-  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime } =
-    UseFortesBarIndo();
+  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime } = UseFortesBarIndo();
   var items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
 
   const handleClose = async () => {

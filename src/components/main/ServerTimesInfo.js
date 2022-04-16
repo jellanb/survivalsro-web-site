@@ -20,7 +20,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Clock from 'react-live-clock';
 import { useTranslation } from 'react-i18next';
 import Countdown from 'react-countdown';
-import ServerClock from "./server-time/ServerClock";
+import ServerClock from './server-time/ServerClock';
 
 const useStyles = makeStyles({
   root: {

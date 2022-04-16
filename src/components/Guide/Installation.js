@@ -54,8 +54,8 @@ const Video = styled('iframe')(({ theme }) => ({
 
 const Installation = () => {
   const { t } = useTranslation();
-  const urlW7 = process.env['REACT_APP_INSTALL_GUID_W7_URL']
-  const urlW10 = process.env['REACT_APP_INSTALL_GUID_W10_URL']
+  const urlW7 = process.env['REACT_APP_INSTALL_GUID_W7_URL'];
+  const urlW10 = process.env['REACT_APP_INSTALL_GUID_W10_URL'];
   return (
     <Container>
       <h1>{t('installation.guide.title')}</h1>

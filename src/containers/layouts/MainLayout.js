@@ -21,7 +21,7 @@ const Main = styled('div')(({ theme }) => ({
 
 const MainLayout = ({ children }) => {
   return (
-    <Container >
+    <Container>
       <CssBaseline />
       <Header />
       <Main>{children}</Main>
