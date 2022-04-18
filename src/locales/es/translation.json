@@ -53,16 +53,22 @@
   "app.SingUpPopUpMessage1": "Tu ID de cuenta es :",
 
   "guides": "Guías",
-  "leveling": "Leveling",
   "windows7": "Windows 7",
   "windows10": "Windows 10",
 
   "installation": "Instalación",
   "installation.guide.title": "Guia de instalación",
   "installation.guide.text1": "Para el proceso de instalación mas comun, solo es necesario la descarga de los archivos desde nuestra sección de descarga y la extracción de los archivos. Sin embargo muchos usuarios an reportado inconvenientes por intromision del antivirus o windows defenter. Por esta razón realizamos esta sección para explicarles como excluir los archivos de Survival Silkroad y no tener problema alguno",
-  "app.SingUpPopUpMessage1": "Tu ID de cuenta es :",
 
-  "guides": "Guías",
-  "leveling": "Leveling",
-  "installing": "Instalación"
+  "installing": "Instalación",
+
+  "start": "Inicio",
+  "start.guide.title": "Guia de inicio",
+  "start.guide.text1": "El proceso de bienvenido es una breve introducción del funcionamiento de las herramiendas del juego, conjunto con un kit de articulosque te seran de utilidad para iniciar esta gran aventura",
+  "start.guide.text2": "Este boton a la izquierda de la pantalla te será de utilidad para activar y desactivar el silk por hora que recibe cada cuenta. Solo es necesario activarlo una vez",
+  "start.guide.text3": "Tambien te será de mucha utilidad que iniciaras con un kit de componentes del mas alto poder para que puedas escalar los niveles iniciales de forma rapida y segura. Sin embargo tabmien podras reclamar las misiones por tus niveles alcanzados, las cales te proporcionaran nuevas armas y scrolls para aumentar tu poder",
+
+  "leveling": "Leveo",
+
+  "uniques": "Unicos"
 }

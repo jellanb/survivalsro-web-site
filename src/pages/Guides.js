@@ -4,6 +4,9 @@ import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
 import Installation from '../components/Guide/Installation';
+import Start from '../components/Guide/Start';
+import Uniques from '../components/Guide/Uniques';
+import Leveling from '../components/Guide/Leveling';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
@@ -55,7 +58,7 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   fontSize: '1em',
   maxWidth: '10em',
   minHeight: '5em',
-  width: 'fit-content',
+  width: 'auto',
   padding: '0.5em',
   textTransform: 'capitalize',
   '&.Mui-selected': {
@@ -94,11 +97,28 @@ const Guides = () => {
         <Tab>
           <Typography>{t('installation')}</Typography>
         </Tab>
+        <Tab>
+          <Typography>{t('start')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('uniques')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('leveling')}</Typography>
+        </Tab>
       </TabContainer>
       <TabPanel value={0}>
         <Installation />
       </TabPanel>
-      <TabPanel value={1}>2</TabPanel>
+      <TabPanel value={1}>
+        <Start />
+      </TabPanel>
+      <TabPanel value={2}>
+        <Uniques />
+      </TabPanel>
+      <TabPanel value={3}>
+        <Leveling />
+      </TabPanel>
     </Container>
   );
 };
