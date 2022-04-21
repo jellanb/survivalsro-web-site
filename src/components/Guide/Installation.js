@@ -6,6 +6,7 @@ const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5em',
+  height: '100%',
   with: '100%',
   padding: '1em 2em',
   backgroundImage: `url(${bruja})`,
@@ -61,7 +62,7 @@ const Installation = () => {
     .map((_, i) => <div key={i} className="firefly"></div>);
 
   return (
-    <Container className="firefly-container">
+    <Container className="firefly-container constellation-bg">
       {fireflies}
       <h1 className={'glow'} style={{ marginBottom: '1em' }}>
         {t('installation.guide.title')}
