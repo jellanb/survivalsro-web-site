@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import welcomeImg from '../../images/start-guide/welcomeImg.jpeg';
 import inventoryImg from '../../images/start-guide/inventoryImg.jpeg';
 import questsImg from '../../images/start-guide/questsImg.jpeg';
+import flareHot1 from '../../images/flareHot1.png';
 import Image from '../common/Image';
 
 const Container = styled('div')(({ theme }) => ({
@@ -37,33 +38,37 @@ const Start = () => {
       </h1>
 
       <Grid container spacing={0}>
-        <Grid item s={12} md={7}>
+        <Grid item s={12} md={7} alignItems="center" style={{ display: 'flex' }}>
           <Text>{t('start.guide.text1')}</Text>
         </Grid>
         <Grid item s={12} md={5}>
           <Image src={welcomeImg} alt="map" />
         </Grid>
 
-        <Grid item xs={12} style={{ marginBottom: '2em' }} />
+        <Grid item s={12} justifyContent="center" style={{ display: 'flex', margin: '2em 0' }}>
+          <img src={flareHot1} alt={'flare'} style={{ maxWidth: '50%' }} />
+        </Grid>
 
         <Grid item s={12} md={3}>
           <Image src={inventoryImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={0.95} />
         </Grid>
 
-        <Grid item s={12} md={6}>
+        <Grid item s={12} md={6} alignItems="center" style={{ display: 'flex' }}>
           <Text>{t('start.guide.text2')}</Text>
         </Grid>
         <Grid item s={12} md={3} />
 
-        <Grid item s={12} style={{ marginBottom: '2em' }} />
+        <Grid item s={12} justifyContent="center" style={{ display: 'flex', margin: '2em 0' }}>
+          <img src={flareHot1} alt={'flare'} style={{ maxWidth: '50%' }} />
+        </Grid>
 
-        <Grid item s={3} md={3} />
+        <Grid item s={12} md={3} />
 
-        <Grid item s={12} md={6}>
+        <Grid item s={12} md={6} alignItems="center" style={{ display: 'flex' }}>
           <Text>{t('start.guide.text3')}</Text>
         </Grid>
 
-        <Grid item s={12} md={3}>
+        <Grid item s={12} md={3} alignItems="center" style={{ display: 'flex' }}>
           <Image src={questsImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={1} />
         </Grid>
       </Grid>
