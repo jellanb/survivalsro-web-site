@@ -61,10 +61,12 @@
   "start": "Start",
   "start.guide.title": "Starting guide",
   "start.guide.text1": "The welcome process is a brief introduction to the operation of the game's tools, together with a kit of items that will be useful to start this great adventure.",
-  "start.guide.text2": "This button on the left of the screen will be useful to activate and deactivate the hourly silk that each account receives. You only need to activate it once",
-  "start.guide.text3": "It will also be very useful for you to start with a kit of components of the highest power so that you can climb the initial levels quickly and safely. However, you can also claim the missions for your levels reached, the limes will provide you with new weapons and scrolls to increase your power",
+  "start.guide.text2": "It will also be very useful for you to start with a kit of components of the highest power so that you can climb the initial levels quickly and safely.",
+  "start.guide.text3": "However, you can also claim the missions for your levels reached, the limes will provide you with new weapons and scrolls to increase your power",
 
   "leveling": "Leveling",
+  "leveling.guide.title": "Leveling guide",
 
-  "uniques": "Uniques"
+  "uniques": "Uniques",
+  "uniques.guide.title": "Uniques guide"
 }

@@ -54,35 +54,16 @@ const Video = styled('iframe')(({ theme }) => ({
 
 const Leveling = () => {
   const { t } = useTranslation();
-  const urlW7 = process.env['REACT_APP_INSTALL_GUID_W7_URL'];
-  const urlW10 = process.env['REACT_APP_INSTALL_GUID_W10_URL'];
+  const fireflies = Array(40)
+    .fill(0)
+    .map((_, i) => <div key={i} className="firefly"></div>);
+
   return (
-    <Container>
-      <h1>{t('start.guide.title')}</h1>
-
-      <Text>{t('start.guide.text1')}</Text>
-
-      <VideoSection>
-        <h4>{t('windows10')}</h4>
-        <Video
-          src={urlW10}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></Video>
-      </VideoSection>
-
-      <VideoSection>
-        <h4>{t('windows7')}</h4>
-        <Video
-          src={urlW7}
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></Video>
-      </VideoSection>
+    <Container className="firefly-container">
+      {fireflies}
+      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+        {t('leveling.guide.title')}
+      </h1>
     </Container>
   );
 };

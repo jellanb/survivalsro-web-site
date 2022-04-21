@@ -1,6 +1,9 @@
 import { Grid, styled } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import bruja from '../../images/InstalationImg1.png';
+import welcomeImg from '../../images/start-guide/welcomeImg.jpeg';
+import inventoryImg from '../../images/start-guide/inventoryImg.jpeg';
+import questsImg from '../../images/start-guide/questsImg.jpeg';
+import Image from '../common/Image';
 
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -13,7 +16,6 @@ const Container = styled('div')(({ theme }) => ({
 const Text = styled('p')(({ theme }) => ({
   textAlign: 'left',
   fontSize: '1.5em',
-  width: '80%',
   padding: '1em',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
@@ -23,41 +25,48 @@ const Text = styled('p')(({ theme }) => ({
 
 const Start = () => {
   const { t } = useTranslation();
+  const fireflies = Array(40)
+    .fill(0)
+    .map((_, i) => <div key={i} className="firefly"></div>);
 
   return (
-    <Container>
-      <h1>{t('start.guide.title')}</h1>
+    <Container className="firefly-container">
+      {fireflies}
+      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+        {t('start.guide.title')}
+      </h1>
 
-      <Grid container spacing={2}>
-        <Grid xs={8}>
+      <Grid container spacing={0}>
+        <Grid item s={12} md={7}>
           <Text>{t('start.guide.text1')}</Text>
         </Grid>
-        <Grid xs={4}>
-          <img src={bruja} alt="map" />
+        <Grid item s={12} md={5}>
+          <Image src={welcomeImg} alt="map" />
         </Grid>
 
-        <Grid xs={8}>
-          <img src={bruja} alt="map" />
+        <Grid item xs={12} style={{ marginBottom: '2em' }} />
+
+        <Grid item s={12} md={3}>
+          <Image src={inventoryImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={0.95} />
         </Grid>
-        <Grid xs={8}>
+
+        <Grid item s={12} md={6}>
           <Text>{t('start.guide.text2')}</Text>
         </Grid>
+        <Grid item s={12} md={3} />
 
-        <Grid xs={3}>
-          <img src={bruja} alt="map" />
-        </Grid>
+        <Grid item s={12} style={{ marginBottom: '2em' }} />
 
-        <Grid xs={6}>
+        <Grid item s={3} md={3} />
+
+        <Grid item s={12} md={6}>
           <Text>{t('start.guide.text3')}</Text>
         </Grid>
 
-        <Grid xs={3}>
-          <img src={bruja} alt="map" />
+        <Grid item s={12} md={3}>
+          <Image src={questsImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={1} />
         </Grid>
       </Grid>
-
-      <Text>{t('start.guide.text2')}</Text>
-      <Text>{t('start.guide.text3')}</Text>
     </Container>
   );
 };

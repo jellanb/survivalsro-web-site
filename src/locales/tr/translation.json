@@ -57,12 +57,14 @@
   "installation.guide.text1": "En yaygın kurulum işlemi için sadece indirme bölümümüzden dosyaları indirip dosyaları çıkartmanız yeterlidir. Ancak, birçok kullanıcı virüsten koruma yazılımının veya Windows Defender'ın izinsiz girişinden kaynaklanan rahatsızlıklar bildirdi. Bu sebeple bu bölümü Survival Silkroad dosyalarının nasıl silineceğini ve herhangi bir sorun yaşamamak için yaptık.",
 
   "start": "Başlangıç",
-  "start.guide.title": "başlangıç ​​kılavuzu",
+  "start.guide.title": "Başlangıç ​​kılavuzu",
   "start.guide.text1": "Tüm süreçlerin en kısa girişini yapmak, tüm işlevleri yerine getirmek için her şeyi içerir.",
-  "start.guide.text2": "Ekranın solundaki bu buton, her hesabın aldığı saatlik silk'i etkinleştirmek ve devre dışı bırakmak için faydalı olacaktır. Sadece bir kez etkinleştirmeniz gerekir",
-  "start.guide.text3": "Başlangıç ​​seviyelerine hızlı ve güvenli bir şekilde çıkabilmeniz için en yüksek güce sahip bileşenlerden oluşan bir kit ile başlamanız da çok faydalı olacaktır. Ancak, ulaştığınız seviyeler için görevleri de talep edebilirsiniz, limonlar gücünüzü artırmak için size yeni silahlar ve parşömenler sağlayacaktır.",
+  "start.guide.text2": "Başlangıç ​​seviyelerine hızlı ve güvenli bir şekilde çıkabilmeniz için en yüksek güce sahip bileşenlerden oluşan bir kit ile başlamanız da çok faydalı olacaktır.",
+  "start.guide.text3": "Ancak, ulaştığınız seviyeler için görevleri de talep edebilirsiniz, limonlar gücünüzü artırmak için size yeni silahlar ve parşömenler sağlayacaktır.",
 
-  "leveling": "tesviye",
+  "leveling": "Tesviye",
+  "leveling.guide.title": "Tesviye kılavuzu",
 
-  "uniques": "Unico'lar"
+  "uniques": "Uniques",
+  "uniques.guide.title": "Uniques kılavuz"
 }
