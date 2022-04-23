@@ -7,6 +7,7 @@ import Installation from '../components/Guide/Installation';
 import Start from '../components/Guide/Start';
 import Uniques from '../components/Guide/Uniques';
 import Leveling from '../components/Guide/Leveling';
+import JupiterUniques from '../components/Guide/JupiterUniques';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
@@ -77,16 +78,15 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   }
 }));
 
-const TabPanel = styled(TabPanelUnstyled)`
-  background-color: #212122;
-  border: 2px #757a75;
-  border-radius: 0.5em;
-  border-style: double;
-  color: #afc8d6;
-  padding: 0.5em;
-  text-align: center;
-  width: 100%;
-`;
+const TabPanel = styled(TabPanelUnstyled)(({ theme }) => ({
+  border: '2px #757a75',
+  borderRadius: '0.5em',
+  borderStyle: 'double',
+  color: '#afc8d6',
+  padding: 0,
+  textAlign: 'center',
+  width: '100%'
+}));
 
 const Guides = () => {
   const { t } = useTranslation();
@@ -101,23 +101,29 @@ const Guides = () => {
           <Typography>{t('start')}</Typography>
         </Tab>
         <Tab>
+          <Typography>{t('leveling')}</Typography>
+        </Tab>
+        <Tab>
           <Typography>{t('uniques')}</Typography>
         </Tab>
         <Tab>
-          <Typography>{t('leveling')}</Typography>
+          <Typography>{t('jupiter.uniques')}</Typography>
         </Tab>
       </TabContainer>
-      <TabPanel value={0}>
+      <TabPanel value={0} className="firefly-container constellation-bg">
         <Installation />
       </TabPanel>
-      <TabPanel value={1}>
+      <TabPanel value={1} className="firefly-container constellation-bg">
         <Start />
       </TabPanel>
-      <TabPanel value={2}>
+      <TabPanel value={2} className="firefly-container constellation-bg">
+        <Leveling />
+      </TabPanel>
+      <TabPanel value={3} className="firefly-container constellation-bg">
         <Uniques />
       </TabPanel>
-      <TabPanel value={3}>
-        <Leveling />
+      <TabPanel value={4} className="firefly-container constellation-bg">
+        <JupiterUniques />
       </TabPanel>
     </Container>
   );

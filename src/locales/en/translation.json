@@ -66,7 +66,17 @@
 
   "leveling": "Leveling",
   "leveling.guide.title": "Leveling guide",
+  "leveling.guide.text1": "We recommend all users to climb the first 20 or 30 levels in the traditional way, taking into account that our difficulty level is Medium / High, it will only take one hour maximum to reach these levels, before being able to face the first unique.",
+  "leveling.guide.text2": "Powder Level spirits can be used on a ladder, after reaching enough power to kill at least one of these friendly uniques. Undine Lvl. 10, Salamanders Lvl. 30, Slyph Lvl. 50 and Gnome Lvl. 70. These spirits are harmless, do not attack you and respawn every 5 minutes at the same point.",
 
   "uniques": "Uniques",
-  "uniques.guide.title": "Uniques guide"
+  "uniques.guide.title": "Uniques guide",
+  "uniques.guide.text1.title": "Power Level Uniques",
+  "uniques.guide.text1": "These are the four souls of Roc, which we have designed so that level 30 users can face them, with low difficulty and without the risk of dying. These deliver a fairly high experience benefit that will allow them to increase their power much more quickly and effectively.",
+  "uniques.guide.text2.title": "Unique titans",
+  "uniques.guide.text2": "These uniques appear only twice a day, five to six uniques of different classes invade various spawn points with important items inside.",
+
+  "jupiter.uniques": "Jupiter Uniques",
+  "jupiter.uniques.guide.title": "Jupiter Unique Guide",
+  "jupiter.uniques.guide.text1": "These legendary spirits are distributed throughout various areas of the Survival Silkroad map. Inside its interior you will find luxurious and important benefits for the development of each style of play."
 }

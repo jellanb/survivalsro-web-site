@@ -62,7 +62,7 @@ const Installation = () => {
     .map((_, i) => <div key={i} className="firefly"></div>);
 
   return (
-    <Container className="firefly-container constellation-bg">
+    <Container>
       {fireflies}
       <h1 className={'glow'} style={{ marginBottom: '1em' }}>
         {t('installation.guide.title')}

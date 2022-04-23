@@ -70,7 +70,28 @@
 
   "leveling": "Leveo",
   "leveling.guide.title": "Guia de leveo",
+  "leveling.guide.text1": "Recomendamos a todos los usuarios subir los primeros 20 o 30 niveles de forma tradicional, teniendo en consideración que nuestro nivel de dificultad es Medio/Alto solo tomará una hora como máximo alcanzar estos niveles, antes de poder enfrentarse al primer único.",
+  "leveling.guide.text2": "Los espíritus de Powder Level los podrás utilizar en escalera, luego de alcanzar el poder suficiente para matar al menos unos de estos amigables únicos. Undine Lvl. 10, Salamander Lvl. 30, Slyph Lvl. 50 y Gnome Lvl. 70. Dichos espíritus son inofensivos, no te atacan y reaparecen cada 5 minutos en el mismo punto.",
 
   "uniques": "Unicos",
-  "uniques.guide.title": "Guide de unicos"
+  "uniques.guide.title": "Guide de unicos",
+  "uniques.guide.text1.title": "Unicos de Power Level",
+  "uniques.guide.text1": "Estos son las cuatro almas de Roc, las cuales hemos diseñado para que los usuarios de nivel 30 puedan enfrentarlos, con una dificultad baja y sin riesgo de morir. Estos entregan un beneficio de experiencia bastante elevado que les permitirá incrementar su poder de una forma mucho más rápida y efectiva.",
+  "uniques.guide.text2.title": "Unicos titanes",
+  "uniques.guide.text2": "Estos únicos aparecen solo dos veces al día, entre cinto y seis únicos de diferentes clases invaden varios puntos de aparición con elementos importantes en su interior.",
+
+  "jupiter.uniques": "Unicos de Jupiter",
+  "jupiter.uniques.guide.title": "Guia de unicos Jupiter",
+  "jupiter.uniques.guide.text1": "Estos legendarios espíritus se encuentran distribuidos por diversas áreas del mapa de Survival Silkroad. Dentro de su interior podrán encontrar lujosos e importantes beneficios para el desarrollo de cada estilo de juego.",
+  "globals": "Globales",
+  "reverse.scrolls": "Reverse Scrolls",
+  "immortals.11D": "Immortals 11D",
+  "astrals.11D": "Astrals 11D",
+  "gold.coins": "Gold Coins",
+  "silver.coins": "Silver Coins",
+  "iron.coins": "Iron Coins",
+  "copper.coins": "Copper Coins",
+  "increase.pots": "HP/MP 800 Increase",
+  "dimension.hole": "Dimension Hole",
+  "move.speed.150": "Move Speed 150%"
 }

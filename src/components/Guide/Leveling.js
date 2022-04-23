@@ -1,6 +1,7 @@
-import { styled } from '@material-ui/core';
+import { styled, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import bruja from '../../images/InstalationImg1.png';
+import Image from '../common/Image';
 
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -8,48 +9,16 @@ const Container = styled('div')(({ theme }) => ({
   gap: '0.5em',
   height: '100%',
   with: '100%',
-  padding: '1em 2em',
-  backgroundImage: `url(${bruja})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '92.5% 6%',
-  backgroundSize: '22em',
-  [theme.breakpoints.down('sm')]: {
-    background: 'transparent'
-  }
-}));
-
-const VideoSection = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5em',
-  with: '100%',
-  marginTop: '2em',
-  marginBottom: '2em'
+  padding: '1em 2em'
 }));
 
 const Text = styled('p')(({ theme }) => ({
   textAlign: 'left',
   fontSize: '1.5em',
-  width: '80%',
   padding: '1em',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     textAlign: 'center'
-  }
-}));
-
-const Video = styled('iframe')(({ theme }) => ({
-  width: '70%',
-  height: 500,
-  maxWidth: 1000,
-  alignSelf: 'center',
-  [theme.breakpoints.down('md')]: {
-    width: '90%'
-  },
-  [theme.breakpoints.down('sm')]: {
-    width: '100%',
-    textAlign: 'center',
-    height: 250
   }
 }));
 
@@ -60,11 +29,24 @@ const Leveling = () => {
     .map((_, i) => <div key={i} className="firefly"></div>);
 
   return (
-    <Container className="firefly-container constellation-bg">
+    <Container>
       {fireflies}
       <h1 className={'glow'} style={{ marginBottom: '1em' }}>
         {t('leveling.guide.title')}
       </h1>
+      <Grid container spacing={0}>
+        <Grid item s={12} lg={6}>
+          <Text>{t('leveling.guide.text1')}</Text>
+        </Grid>
+        <Grid item s={12} md={6}></Grid>
+
+        <Grid item lg={12} alignItems="center" style={{ display: 'flex' }}>
+          <Text style={{ textAlign: 'center' }}>{t('leveling.guide.text2')}</Text>
+        </Grid>
+        <Grid item lg={12}>
+          <Grid item sm={12} md={6} lg={3}></Grid>
+        </Grid>
+      </Grid>
     </Container>
   );
 };
