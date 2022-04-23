@@ -1,6 +1,7 @@
 import { styled, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import bruja from '../../images/InstalationImg1.png';
+import levelUpImg from '../../images/leveling-guide/lvlup.jpeg';
+import powerLevelImg from '../../images/uniques-guide/powerLevel.jpeg';
 import Image from '../common/Image';
 
 const Container = styled('div')(({ theme }) => ({
@@ -38,13 +39,15 @@ const Leveling = () => {
         <Grid item s={12} lg={6}>
           <Text>{t('leveling.guide.text1')}</Text>
         </Grid>
-        <Grid item s={12} md={6}></Grid>
+        <Grid item s={12} md={6}>
+          <Image src={levelUpImg} alt="levelup" aspectRatio={2.325} />
+        </Grid>
 
         <Grid item lg={12} alignItems="center" style={{ display: 'flex' }}>
           <Text style={{ textAlign: 'center' }}>{t('leveling.guide.text2')}</Text>
         </Grid>
         <Grid item lg={12}>
-          <Grid item sm={12} md={6} lg={3}></Grid>
+          <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
         </Grid>
       </Grid>
     </Container>
