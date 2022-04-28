@@ -1,4 +1,4 @@
-import {UseFetchCreateOrderPayment, UseFetchCreateOrderPaymentStripe} from '../helpers/fetchPayment';
+import { UseFetchCreateOrderPayment, UseFetchCreateOrderPaymentStripe } from '../helpers/fetchPayment';
 import { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 
