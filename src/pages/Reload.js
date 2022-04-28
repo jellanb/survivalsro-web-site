@@ -39,9 +39,6 @@ export default function Reload({ history }) {
               SilkRatio={SilkRatio}
             />
           </Grid>
-          {/*<Grid item xl={3} lg={3} xs={12}>
-                  <LatinAmerica></LatinAmerica>
-              </Grid>*/}
         </Grid>
       </Container>
       <BackDropPayment open={load} />

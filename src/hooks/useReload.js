@@ -1,5 +1,4 @@
-import { UseFetchCreateOrderPayment } from '../helpers/fetchPayment';
-//import { UseFetchGetPesoToDollar } from '../helpers/fetchCmfChile'
+import {UseFetchCreateOrderPayment, UseFetchCreateOrderPaymentStripe} from '../helpers/fetchPayment';
 import { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 
@@ -24,6 +23,10 @@ export const useReload = (history) => {
     }
     if (paymentDesc === 'PAGAR CON MERCADOPAGO (CHILE)') {
       history.push('/MercadoPago');
+      return;
+    }
+    if (paymentDesc === 'PAGAR CON STRIPE') {
+      history.push('/stripe');
       return;
     }
   };

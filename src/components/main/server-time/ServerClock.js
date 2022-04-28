@@ -10,7 +10,6 @@ const useStyles = makeStyles({
 
 export default function ServerClock({ time }) {
   const classes = useStyles();
-  console.log(time);
   return (
     <div>
       {time ? <Clock className={classes.timeServer} format={'HH:mm:ss'} ticking={true} date={time} /> : <div />}

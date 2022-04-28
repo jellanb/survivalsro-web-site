@@ -9,6 +9,7 @@ import Reload from './pages/Reload';
 import Politics from './pages/Politics';
 import EditAccount from './pages/EditAccount';
 import MercadoPago from './pages/MercadoPagoPayment';
+import Stripe from './pages/StripPayment';
 import Guides from './pages/Guides';
 import { UserContext } from './hooks/UserContext';
 import MainLayout from './containers/layouts/MainLayout';
@@ -30,6 +31,7 @@ export default function SilkroadSurvivalApp() {
             <Route exact path="/politics" component={Politics} />
             <Route exact path="/editAccount" component={EditAccount} />
             <Route exact path="/MercadoPago" component={MercadoPago} />
+            <Route exact path="/stripe" component={Stripe} />
           </Switch>
         </MainLayout>
       </Router>
