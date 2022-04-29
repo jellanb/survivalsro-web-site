@@ -9,8 +9,7 @@ const Container = styled('div')(({ theme }) => ({
   height: '100%',
   '& > footer': {
     marginTop: 'auto'
-  },
-  backgroundColor: 'white'
+  }
 }));
 
 const Main = styled('div')(({ theme }) => ({

@@ -2,10 +2,12 @@ import { styled } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import bruja from '../../images/InstalationImg1.png';
 
+
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5em',
+  height: '100%',
   with: '100%',
   padding: '1em 2em',
   backgroundImage: `url(${bruja})`,
@@ -56,9 +58,14 @@ const Installation = () => {
   const { t } = useTranslation();
   const urlW7 = process.env['REACT_APP_INSTALL_GUID_W7_URL'];
   const urlW10 = process.env['REACT_APP_INSTALL_GUID_W10_URL'];
+  const fireflies = Array(40)
+    .fill(0)
+    .map((_, i) => <div key={i} className="firefly"></div>);
+
   return (
     <Container>
-      <h1>{t('installation.guide.title')}</h1>
+      {fireflies}
+      <FontFace/>
 
       <Text>{t('installation.guide.text1')}</Text>
 
@@ -67,9 +74,9 @@ const Installation = () => {
         <Video
           src={urlW10}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></Video>
       </VideoSection>
 
@@ -78,13 +85,22 @@ const Installation = () => {
         <Video
           src={urlW7}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></Video>
       </VideoSection>
     </Container>
   );
 };
+
+const FontFace = () => {
+  return(
+        <div className="font-face-gm">
+          In this section we need have title whit font Ethnocentric and color white!
+        </div>
+  )
+}
+
 
 export default Installation;

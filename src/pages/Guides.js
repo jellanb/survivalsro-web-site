@@ -4,10 +4,13 @@ import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
 import Installation from '../components/Guide/Installation';
+import Start from '../components/Guide/Start';
+import Uniques from '../components/Guide/Uniques';
+import Leveling from '../components/Guide/Leveling';
+import JupiterUniques from '../components/Guide/JupiterUniques';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
-import { Fragment } from 'react';
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: 'flex',
@@ -46,21 +49,22 @@ const TabContainer = styled(TabsListUnstyled)(({ theme }) => ({
 }));
 
 const Tab = styled(TabUnstyled)(({ theme }) => ({
-  backgroundColor: '#3f5067',
-  border: '2px',
-  borderColor: '#757a75',
+  backgroundColor: '#1B1919',
+  border: '1px',
+  borderColor: 'white',
   borderRadius: '1em 0 0 1em',
-  borderStyle: 'double none double double',
+  background: 'linear-gradient(45deg, #292727 30%, #1B1919 90%)',
+  boxShadow: '0 3px 5px 2px rgba(100, 105, 135, .3)',
   borderWidth: 'thick',
   color: '#afc8d6',
   fontSize: '1em',
   maxWidth: '10em',
   minHeight: '5em',
-  width: 'fit-content',
+  width: 'auto',
   padding: '0.5em',
   textTransform: 'capitalize',
   '&.Mui-selected': {
-    backgroundColor: '#3c7aa2',
+    backgroundColor: '#716968',
     color: '#ffffff',
     fontWeight: 'bold',
     '> *': {
@@ -75,35 +79,54 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   }
 }));
 
-const TabPanel = styled(TabPanelUnstyled)`
-  background-color: #212122;
-  border: 2px #757a75;
-  border-radius: 0.5em;
-  border-style: double;
-  color: #afc8d6;
-  padding: 0.5em;
-  text-align: center;
-  width: 100%;
-`;
+const TabPanel = styled(TabPanelUnstyled)(({ theme }) => ({
+  border: '2px #757a75',
+  borderRadius: '0.5em',
+  borderStyle: 'double',
+  color: '#afc8d6',
+  padding: 0,
+  textAlign: 'center',
+  width: '100%'
+}));
 
 const Guides = () => {
   const { t } = useTranslation();
 
   return (
-    <Fragment>
-      <br />
-      <Container defaultValue={0}>
-        <TabContainer>
-          <Tab>
-            <Typography>{t('installation')}</Typography>
-          </Tab>
-        </TabContainer>
-        <TabPanel value={0}>
-          <Installation />
-        </TabPanel>
-        <TabPanel value={1}>2</TabPanel>
-      </Container>
-    </Fragment>
+    <Container defaultValue={0}>
+      <TabContainer>
+        <Tab>
+          <Typography>{t('installation')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('start')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('leveling')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('uniques')}</Typography>
+        </Tab>
+        <Tab>
+          <Typography>{t('jupiter.uniques')}</Typography>
+        </Tab>
+      </TabContainer>
+      <TabPanel value={0} className="firefly-container constellation-bg">
+        <Installation />
+      </TabPanel>
+      <TabPanel value={1} className="firefly-container constellation-bg">
+        <Start />
+      </TabPanel>
+      <TabPanel value={2} className="firefly-container constellation-bg">
+        <Leveling />
+      </TabPanel>
+      <TabPanel value={3} className="firefly-container constellation-bg">
+        <Uniques />
+      </TabPanel>
+      <TabPanel value={4} className="firefly-container constellation-bg">
+        <JupiterUniques />
+      </TabPanel>
+    </Container>
   );
 };
 

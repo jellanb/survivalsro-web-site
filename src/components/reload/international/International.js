@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import logoPaypal from '../../../images/logoPaypal.png';
-import logoMercadoPago from '../../../images/logo-mercadopago.png';
+import logoStripe from '../../../images/logo-stripe_0.jpg';
 import { Fragment } from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 0)
   },
   media: {
-    height: 140
+    height: 180
   }
 }));
 
@@ -40,12 +40,19 @@ const client = [
     image: logoPaypal
   },
   {
+    title: 'stripe',
+    buttonText: 'Pagar con Stripe',
+    buttonVariant: 'contained',
+    href: 'https://mega.nz/file/fAwg2JhL#5xOJ16GCpME6R-6SOGjY10ZZPmO6yyPJ4bluCCGg5js',
+    image: logoStripe
+  }
+  /*{
     title: 'MercadoPago',
     buttonText: 'Pagar con MercadoPago (Chile)',
     buttonVariant: 'contained',
     href: 'https://mega.nz/file/fAwg2JhL#5xOJ16GCpME6R-6SOGjY10ZZPmO6yyPJ4bluCCGg5js',
     image: logoMercadoPago
-  }
+  }*/
 ];
 
 export default function International({
@@ -110,7 +117,7 @@ export default function International({
         {client.map((tier) => (
           <Grid item key={tier.title} xs={12} sm={tier.title === 'Paypal' ? 12 : 6} md={4}>
             <Card>
-              <CardMedia className={classes.media} image={tier.image} title="Paypal" />
+              <CardMedia className={classes.media} image={tier.image} title={tier.title} />
               <CardContent></CardContent>
               <CardActions>
                 <Button onClick={handlePaymentClick} fullWidth variant={tier.buttonVariant} color="primary">

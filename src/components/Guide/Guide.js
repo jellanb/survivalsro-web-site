@@ -6,7 +6,8 @@ const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5em',
-  with: '100%'
+  with: '100%',
+
 }));
 
 const Guide = ({ sections }) => {
