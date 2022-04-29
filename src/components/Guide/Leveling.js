@@ -35,7 +35,7 @@ const Leveling = () => {
       <h1 className={'glow'} style={{ marginBottom: '1em' }}>
         {t('leveling.guide.title')}
       </h1>
-      <Grid container spacing={0}>
+      <Grid container spacing={0} justifyContent="center" style={{ display: 'flex' }}>
         <Grid item s={12} lg={6}>
           <Text>{t('leveling.guide.text1')}</Text>
         </Grid>
