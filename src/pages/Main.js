@@ -44,7 +44,8 @@ export default function Main() {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [openDialog, setOpenDialog] = useState(false);
-  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime } = UseFortesBarIndo();
+  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, nextCaptureFlagTime, systemTime } =
+    UseFortesBarIndo();
   var items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
 
   const handleClose = async () => {
@@ -78,7 +79,7 @@ export default function Main() {
             </Carousel>
           </Grid>
           <Grid item xl={2} lg={2} xs={12}>
-            <ServerTimesInfo open={load} serverTime={systemTime} />
+            <ServerTimesInfo date={nextCaptureFlagTime} serverTime={systemTime} />
           </Grid>
         </Grid>
         <br />

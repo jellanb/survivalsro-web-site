@@ -2,7 +2,6 @@ import { styled } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import bruja from '../../images/InstalationImg1.png';
 
-
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
@@ -65,7 +64,7 @@ const Installation = () => {
   return (
     <Container>
       {fireflies}
-      <FontFace/>
+      <FontFace />
 
       <Text>{t('installation.guide.text1')}</Text>
 
@@ -95,12 +94,7 @@ const Installation = () => {
 };
 
 const FontFace = () => {
-  return(
-        <div className="font-face-gm">
-          In this section we need have title whit font Ethnocentric and color white!
-        </div>
-  )
-}
-
+  return <div className="font-face-gm">In this section we need have title whit font Ethnocentric and color white!</div>;
+};
 
 export default Installation;

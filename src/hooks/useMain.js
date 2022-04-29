@@ -24,6 +24,7 @@ export default function UseMain() {
       setOpenDialog(true);
     }
   };
+
   return {
     loadInformation,
     userLastKill,
