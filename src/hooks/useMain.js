@@ -14,7 +14,7 @@ export default function UseMain() {
       const { usersOnline, usernameLastUniqueKill, fortressInfo, nextCaptureFlagTime, serverTime } =
         await getLoadInformation();
       const { CharName16 } = usernameLastUniqueKill;
-      setSystemTime(serverTime.SYSTEM_TIME);
+      setSystemTime(serverTime.TIME);
       setUserLastKill(CharName16);
       setUsersOnlineCount(usersOnline + 30);
       setFortressInfo(fortressInfo);
