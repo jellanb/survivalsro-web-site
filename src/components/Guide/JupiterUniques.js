@@ -5,8 +5,12 @@ import earthImg from '../../images/uniques-guide/earth.png';
 import yunoImg from '../../images/uniques-guide/yuno.png';
 import jupiterImg from '../../images/uniques-guide/jupiter.png';
 import zielImg from '../../images/uniques-guide/ziel.png';
-import arenaImg from '../../images/uniques-guide/arena.jpeg';
+import copperCoinImg from '../../images/uniques-guide/copper-coin.jpeg';
+import ironCoinImg from '../../images/uniques-guide/iron-coin.jpeg';
+import silverCoinImg from '../../images/uniques-guide/silver-coin.jpeg';
+import goldCoinImg from '../../images/uniques-guide/gold-coin.jpeg';
 import astralImg from '../../images/uniques-guide/astral.jpeg';
+import immortalImg from '../../images/uniques-guide/immortal.jpeg';
 import dimensionImg from '../../images/uniques-guide/dimension.jpeg';
 import globalImg from '../../images/uniques-guide/global.jpeg';
 import potsImg from '../../images/uniques-guide/pots.jpeg';
@@ -176,8 +180,7 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
-            >
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
               <ul style={{ listStyle: 'none', margin: 0, padding: '0 0 0 1em', textAlign: 'left', fontSize: '1.5em' }}>
                 <li>{t('reverse.scrolls')}</li>
                 <li>{t('immortals.11D')}</li>
@@ -198,36 +201,51 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
-            >
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
               <table>
                 <tr>
                   <td>
-                    <img src={globalImg} alt={'global'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={globalImg} alt={'global'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                   <td>
-                    <img src={reverseImg} alt={'reverse'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={reverseImg} alt={'reverse'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <img src={astralImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={immortalImg} alt={'astral'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                   <td>
-                    <img src={astralImg} alt={'reverse'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={astralImg} alt={'reverse'} style={{ height: '40px', maxWidth: '100%' }} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={goldCoinImg} alt={'astral'} style={{ height: '40px', maxWidth: '100%' }} />
+                  </td>
+                  <td>
+                    <img src={silverCoinImg} alt={'reverse'} style={{ height: '40px', maxWidth: '100%' }} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={ironCoinImg} alt={'astral'} style={{ height: '40px', maxWidth: '100%' }} />
+                  </td>
+                  <td>
+                    <img src={copperCoinImg} alt={'reverse'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                 </tr>
                 <tr>
                   <td colSpan={2}>
-                    <img src={potsImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={potsImg} alt={'astral'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <img src={dimensionImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={dimensionImg} alt={'astral'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                   <td>
-                    <img src={speedImg} alt={'reverse'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+                    <img src={speedImg} alt={'reverse'} style={{ height: '40px', maxWidth: '100%' }} />
                   </td>
                 </tr>
               </table>

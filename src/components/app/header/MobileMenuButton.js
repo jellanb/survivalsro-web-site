@@ -25,7 +25,7 @@ export default function MobileMenuButton({ userCtx }) {
   return (
     <Fragment>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" elevation={0}>
           <Toolbar className={classes.button}>
             <MobileMenuAction
               open={open}

@@ -54,7 +54,6 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   borderColor: 'white',
   borderRadius: '1em 0 0 1em',
   background: 'linear-gradient(45deg, #292727 30%, #1B1919 90%)',
-  boxShadow: '0 3px 5px 2px rgba(100, 105, 135, .3)',
   borderWidth: 'thick',
   color: '#afc8d6',
   fontSize: '1em',
@@ -67,13 +66,14 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
     backgroundColor: '#716968',
     color: '#ffffff',
     fontWeight: 'bold',
+    filter: 'contrast(115%)',
     '> *': {
-      fontSize: '1.1em'
+      fontSize: '1.2em',
+      color: 'white'
     }
   },
   [theme.breakpoints.down('sm')]: {
     borderRadius: '1em 1em 0 0',
-    borderStyle: 'double double none double',
     minWidth: '6em',
     maxWidth: 'none'
   }
