@@ -1,4 +1,4 @@
-import { Grid, styled } from '@material-ui/core';
+import { Grid, styled, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import welcomeImg from '../../images/start-guide/welcomeImg.jpeg';
 import inventoryImg from '../../images/start-guide/inventoryImg.jpeg';
@@ -33,9 +33,13 @@ const Start = () => {
   return (
     <Container>
       {fireflies}
-      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+      <Typography
+        type="h1"
+        className={'glow'}
+        style={{ fontSize: '24px', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+      >
         {t('start.guide.title')}
-      </h1>
+      </Typography>
 
       <Grid container spacing={0}>
         <Grid item s={12} md={7} alignItems="center" style={{ display: 'flex' }}>

@@ -180,7 +180,8 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
+            >
               <ul style={{ listStyle: 'none', margin: 0, padding: '0 0 0 1em', textAlign: 'left', fontSize: '1.5em' }}>
                 <li>{t('reverse.scrolls')}</li>
                 <li>{t('immortals.11D')}</li>
@@ -201,7 +202,8 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
+            >
               <table>
                 <tr>
                   <td>

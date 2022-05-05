@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core';
+import { styled, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import bruja from '../../images/InstalationImg1.png';
 
@@ -94,7 +94,11 @@ const Installation = () => {
 };
 
 const FontFace = () => {
-  return <div className="font-face-gm">In this section we need have title whit font Ethnocentric and color white!</div>;
+  return (
+    <Typography component="h2" variant="h5" style={{ fontFamily: 'var(--survivalLikeFontFamily)' }}>
+      In this section we need have title whit font Ethnocentric and color white!
+    </Typography>
+  );
 };
 
 export default Installation;
