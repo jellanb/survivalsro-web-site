@@ -13,7 +13,8 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 const Main = styled('div')(({ theme }) => ({
-  width: 'auto'
+  width: 'auto',
+  backgroundColor: 'white'
 }));
 
 const MainLayout = ({ children }) => {

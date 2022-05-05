@@ -12,13 +12,18 @@ import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
 
-const Container = styled(TabsUnstyled)(({ theme }) => ({
+const Container = styled('div')(({ theme }) => ({
+  backgroundColor: 'black'
+}));
+
+const TabsContainer = styled(TabsUnstyled)(({ theme }) => ({
   display: 'flex',
   width: '90%',
   maxWidth: MAX_WIDTH,
   height: 'fit-content',
   minHeight: '100%',
   margin: '0 auto',
+  padding: '1em 0',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
     width: '95%'
@@ -93,39 +98,41 @@ const Guides = () => {
   const { t } = useTranslation();
 
   return (
-    <Container defaultValue={0}>
-      <TabContainer>
-        <Tab>
-          <Typography>{t('installation')}</Typography>
-        </Tab>
-        <Tab>
-          <Typography>{t('start')}</Typography>
-        </Tab>
-        <Tab>
-          <Typography>{t('leveling')}</Typography>
-        </Tab>
-        <Tab>
-          <Typography>{t('uniques')}</Typography>
-        </Tab>
-        <Tab>
-          <Typography>{t('jupiter.uniques')}</Typography>
-        </Tab>
-      </TabContainer>
-      <TabPanel value={0} className="firefly-container constellation-bg">
-        <Installation />
-      </TabPanel>
-      <TabPanel value={1} className="firefly-container constellation-bg">
-        <Start />
-      </TabPanel>
-      <TabPanel value={2} className="firefly-container constellation-bg">
-        <Leveling />
-      </TabPanel>
-      <TabPanel value={3} className="firefly-container constellation-bg">
-        <Uniques />
-      </TabPanel>
-      <TabPanel value={4} className="firefly-container constellation-bg">
-        <JupiterUniques />
-      </TabPanel>
+    <Container>
+      <TabsContainer defaultValue={0}>
+        <TabContainer>
+          <Tab>
+            <Typography>{t('installation')}</Typography>
+          </Tab>
+          <Tab>
+            <Typography>{t('start')}</Typography>
+          </Tab>
+          <Tab>
+            <Typography>{t('leveling')}</Typography>
+          </Tab>
+          <Tab>
+            <Typography>{t('uniques')}</Typography>
+          </Tab>
+          <Tab>
+            <Typography>{t('jupiter.uniques')}</Typography>
+          </Tab>
+        </TabContainer>
+        <TabPanel value={0} className="firefly-container constellation-bg">
+          <Installation />
+        </TabPanel>
+        <TabPanel value={1} className="firefly-container constellation-bg">
+          <Start />
+        </TabPanel>
+        <TabPanel value={2} className="firefly-container constellation-bg">
+          <Leveling />
+        </TabPanel>
+        <TabPanel value={3} className="firefly-container constellation-bg">
+          <Uniques />
+        </TabPanel>
+        <TabPanel value={4} className="firefly-container constellation-bg">
+          <JupiterUniques />
+        </TabPanel>
+      </TabsContainer>
     </Container>
   );
 };
