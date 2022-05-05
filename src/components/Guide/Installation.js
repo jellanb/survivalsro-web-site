@@ -64,8 +64,12 @@ const Installation = () => {
   return (
     <Container>
       {fireflies}
-      <FontFace />
-
+      <Typography
+        type="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+      >
+        {t('installation.guide.title')}
+      </Typography>
       <Text>{t('installation.guide.text1')}</Text>
 
       <VideoSection>

@@ -35,8 +35,7 @@ const Start = () => {
       {fireflies}
       <Typography
         type="h1"
-        className={'glow'}
-        style={{ fontSize: '24px', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
       >
         {t('start.guide.title')}
       </Typography>

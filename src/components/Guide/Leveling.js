@@ -1,4 +1,4 @@
-import { styled, Grid } from '@material-ui/core';
+import { styled, Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import levelUpImg from '../../images/leveling-guide/lvlup.jpeg';
 import powerLevelImg from '../../images/uniques-guide/powerLevel.jpeg';
@@ -32,9 +32,12 @@ const Leveling = () => {
   return (
     <Container>
       {fireflies}
-      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+      <Typography
+        type="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+      >
         {t('leveling.guide.title')}
-      </h1>
+      </Typography>
       <Grid container spacing={0} justifyContent="center" style={{ display: 'flex' }}>
         <Grid item s={12} lg={6}>
           <Text>{t('leveling.guide.text1')}</Text>

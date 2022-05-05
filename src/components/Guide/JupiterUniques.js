@@ -1,4 +1,4 @@
-import { styled, Grid } from '@material-ui/core';
+import { styled, Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import baalImg from '../../images/uniques-guide/baal.png';
 import earthImg from '../../images/uniques-guide/earth.png';
@@ -109,7 +109,7 @@ const EarthImg = styled(Img)(({ theme }) => ({
 }));
 
 const JupiterImg = styled(Img)(({ theme }) => ({
-  top: -200,
+  top: -180,
   right: -180,
   width: '100%',
   [theme.breakpoints.down('md')]: {
@@ -156,9 +156,12 @@ const JupiterUniques = () => {
   return (
     <Container>
       {fireflies}
-      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+      <Typography
+        type="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+      >
         {t('jupiter.uniques.guide.title')}
-      </h1>
+      </Typography>
       <Grid container spacing={0}>
         <UniquesContainer item s={12} lg={7}>
           <BaalImg src={baalImg} alt="power-level-uniques" />

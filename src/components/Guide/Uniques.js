@@ -1,4 +1,4 @@
-import { styled, Grid } from '@material-ui/core';
+import { styled, Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import powerLevelImg from '../../images/uniques-guide/powerLevel.jpeg';
 import elitesImg from '../../images/uniques-guide/elites.jpeg';
@@ -65,9 +65,12 @@ const Uniques = () => {
   return (
     <Container>
       {fireflies}
-      <h1 className={'glow'} style={{ marginBottom: '1em' }}>
+      <Typography
+        type="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
+      >
         {t('uniques.guide.title')}
-      </h1>
+      </Typography>
       <Grid container spacing={0}>
         <Grid item s={12} lg={7}>
           <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
