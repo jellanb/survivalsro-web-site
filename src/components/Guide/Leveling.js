@@ -14,9 +14,10 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 const Text = styled('p')(({ theme }) => ({
-  textAlign: 'left',
+  textAlign: 'justify',
   fontSize: '1.5em',
   padding: '1em',
+  margin: 0,
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     textAlign: 'center'
@@ -33,23 +34,21 @@ const Leveling = () => {
     <Container>
       {fireflies}
       <Typography
-        type="h1"
-        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
-      >
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('leveling.guide.title')}
       </Typography>
       <Grid container spacing={0} justifyContent="center" style={{ display: 'flex' }}>
-        <Grid item s={12} lg={6}>
+        <Grid item s={12} lg={10}>
           <Text>{t('leveling.guide.text1')}</Text>
         </Grid>
-        <Grid item s={12} md={6}>
+        <Grid item s={12} lg={8}>
           <Image src={levelUpImg} alt="levelup" aspectRatio={2.325} />
         </Grid>
-
         <Grid item lg={12} alignItems="center" style={{ display: 'flex' }}>
           <Text style={{ textAlign: 'center' }}>{t('leveling.guide.text2')}</Text>
         </Grid>
-        <Grid item lg={12}>
+        <Grid item lg={11}>
           <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
         </Grid>
       </Grid>

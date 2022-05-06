@@ -23,7 +23,7 @@ const Container = styled('div')(({ theme }) => ({
 const Text = styled('p')(({ theme }) => ({
   textAlign: 'left',
   fontSize: '1.5em',
-  padding: '1em',
+  padding: '0 1em',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     textAlign: 'center'
@@ -66,28 +66,17 @@ const Uniques = () => {
     <Container>
       {fireflies}
       <Typography
-        type="h1"
-        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
-      >
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('uniques.guide.title')}
       </Typography>
-      <Grid container spacing={0}>
-        <Grid item s={12} lg={7}>
-          <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
-        </Grid>
-        <Grid item s={12} lg={5} alignItems="center">
-          <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text1.title')}</h1>
-          <Text>{t('uniques.guide.text1')}</Text>
-        </Grid>
-
-        <Grid item style={{ display: 'flex', margin: '1em 0', width: '100%' }}></Grid>
-
+      <Grid container style={{ display: 'flex', alignItems: 'center' }}>
         <Grid item s={12} lg={7}>
           <Image src={elitesImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2.278} />
         </Grid>
         <Grid item s={12} lg={5} alignItems="center">
-          <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text2.title')}</h1>
-          <Text>{t('uniques.guide.text2')}</Text>
+          <Typography variant="h4">{t('uniques.guide.text1.title')}</Typography>
+          <Text>{t('uniques.guide.text1')}</Text>
           <Grid item lg={12} alignItems="center" justifyContent="center" style={{ display: 'flex', gap: '0.5em' }}>
             <img src={arenaImg} alt={'arena'} style={{ minHeight: '40px', maxWidth: '100%' }} />
             <img src={astralImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
@@ -106,8 +95,7 @@ const Uniques = () => {
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></Video>
+          allowFullScreen></Video>
       </VideoSection>
     </Container>
   );

@@ -11,7 +11,7 @@ const Container = styled('div')(({ theme }) => ({
   padding: '1em 2em',
   backgroundImage: `url(${bruja})`,
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: '92.5% 6%',
+  backgroundPosition: '95% 6%',
   backgroundSize: '22em',
   [theme.breakpoints.down('sm')]: {
     background: 'transparent'
@@ -65,9 +65,8 @@ const Installation = () => {
     <Container>
       {fireflies}
       <Typography
-        type="h1"
-        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
-      >
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('installation.guide.title')}
       </Typography>
       <Text>{t('installation.guide.text1')}</Text>
@@ -79,8 +78,7 @@ const Installation = () => {
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></Video>
+          allowFullScreen></Video>
       </VideoSection>
 
       <VideoSection>
@@ -90,18 +88,9 @@ const Installation = () => {
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></Video>
+          allowFullScreen></Video>
       </VideoSection>
     </Container>
-  );
-};
-
-const FontFace = () => {
-  return (
-    <Typography component="h2" variant="h5" style={{ fontFamily: 'var(--survivalLikeFontFamily)' }}>
-      In this section we need have title whit font Ethnocentric and color white!
-    </Typography>
   );
 };
 

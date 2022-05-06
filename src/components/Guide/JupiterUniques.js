@@ -49,10 +49,10 @@ const UniquesContainer = styled(Grid)(({ theme }) => ({
     minWidth: '100%'
   },
   [theme.breakpoints.down('sm')]: {
-    minHeight: '450px'
+    minHeight: '480px'
   },
   [theme.breakpoints.down('xs')]: {
-    minHeight: '350px'
+    minHeight: '340px'
   }
 }));
 
@@ -157,9 +157,8 @@ const JupiterUniques = () => {
     <Container>
       {fireflies}
       <Typography
-        type="h1"
-        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
-      >
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('jupiter.uniques.guide.title')}
       </Typography>
       <Grid container spacing={0}>
@@ -171,8 +170,8 @@ const JupiterUniques = () => {
           <ZielImg src={zielImg} alt="power-level-uniques" />
         </UniquesContainer>
         <Grid item s={12} lg={5} style={{ marginBottom: '2em' }}>
-          <Grid item lg={12} style={{ marginBottom: '2em' }}>
-            <Text>{t('jupiter.uniques.guide.text1')}</Text>
+          <Grid item sm={12} lg={12} style={{ marginBottom: '2em' }}>
+            <Text style={{ padding: 0, margin: 0 }}>{t('jupiter.uniques.guide.text1')}</Text>
           </Grid>
 
           <Grid container lg={12}>
@@ -183,8 +182,7 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
-            >
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
               <ul style={{ listStyle: 'none', margin: 0, padding: '0 0 0 1em', textAlign: 'left', fontSize: '1.5em' }}>
                 <li>{t('reverse.scrolls')}</li>
                 <li>{t('immortals.11D')}</li>
@@ -205,8 +203,7 @@ const JupiterUniques = () => {
               md={6}
               lg={6}
               justifyContent="center"
-              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}
-            >
+              style={{ display: 'flex', alignItems: 'center', justifyItems: 'center' }}>
               <table>
                 <tr>
                   <td>

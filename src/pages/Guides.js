@@ -67,6 +67,7 @@ const Tab = styled(TabUnstyled)(({ theme }) => ({
   width: 'auto',
   padding: '0.5em',
   textTransform: 'capitalize',
+  zIndex: 1,
   '&.Mui-selected': {
     backgroundColor: '#716968',
     color: '#ffffff',

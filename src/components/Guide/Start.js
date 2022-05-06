@@ -34,9 +34,8 @@ const Start = () => {
     <Container>
       {fireflies}
       <Typography
-        type="h1"
-        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', marginBottom: '1em' }}
-      >
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('start.guide.title')}
       </Typography>
 
