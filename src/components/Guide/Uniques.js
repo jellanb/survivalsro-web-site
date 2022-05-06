@@ -1,6 +1,5 @@
 import { styled, Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import Card from '@mui/material/Card';
 import powerLevelImg from '../../images/uniques-guide/powerLevel.jpeg';
 import elitesImg from '../../images/uniques-guide/elites.jpeg';
 import arenaImg from '../../images/uniques-guide/arena.jpeg';
@@ -11,8 +10,6 @@ import potsImg from '../../images/uniques-guide/pots.jpeg';
 import reverseImg from '../../images/uniques-guide/reverse.jpeg';
 import speedImg from '../../images/uniques-guide/speed.jpeg';
 import Image from '../common/Image';
-import { makeStyles } from '@material-ui/core/styles';
-import cardFond from '../../images/fondoGuias.jpg';
 
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -57,21 +54,8 @@ const Video = styled('iframe')(({ theme }) => ({
   }
 }));
 
-const useStyles = makeStyles((theme) => ({
-  card1: {
-    backgroundImage: `url(${cardFond})`,
-    backgroundSize: 'cover',
-    display: 'flex'
-  },
-  card2: {
-    backgroundImage: `url(${cardFond})`,
-    backgroundSize: 'cover'
-  }
-}));
-
 const Uniques = () => {
   const { t } = useTranslation();
-  const classes = useStyles();
   const urlUniques = process.env['REACT_APP_UNIQUES_VIDEO_URL'];
 
   const fireflies = Array(40)
@@ -88,49 +72,43 @@ const Uniques = () => {
         {t('uniques.guide.title')}
       </Typography>
       <Grid container spacing={0}>
-        <Card className={classes.card1}>
-          <Grid item s={12} lg={7}>
-            <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
-          </Grid>
-          <Grid item s={12} lg={5} alignItems="center">
-            <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text1.title')}</h1>
-            <Text>{t('uniques.guide.text1')}</Text>
-          </Grid>
-        </Card>
+        <Grid item s={12} lg={7}>
+          <Image src={powerLevelImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2} />
+        </Grid>
+        <Grid item s={12} lg={5} alignItems="center">
+          <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text1.title')}</h1>
+          <Text>{t('uniques.guide.text1')}</Text>
+        </Grid>
 
         <Grid item style={{ display: 'flex', margin: '1em 0', width: '100%' }}></Grid>
 
-        <Card className={classes.card1}>
-          <Grid item s={12} lg={7}>
-            <Image src={elitesImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2.278} />
+        <Grid item s={12} lg={7}>
+          <Image src={elitesImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2.278} />
+        </Grid>
+        <Grid item s={12} lg={5} alignItems="center">
+          <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text2.title')}</h1>
+          <Text>{t('uniques.guide.text2')}</Text>
+          <Grid item lg={12} alignItems="center" justifyContent="center" style={{ display: 'flex', gap: '0.5em' }}>
+            <img src={arenaImg} alt={'arena'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={astralImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={dimensionImg} alt={'dimension'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={globalImg} alt={'global'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={potsImg} alt={'pots'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={reverseImg} alt={'reverse'} style={{ minHeight: '40px', maxWidth: '100%' }} />
+            <img src={speedImg} alt={'speed'} style={{ minHeight: '40px', maxWidth: '100%' }} />
           </Grid>
-          <Grid item s={12} lg={5} alignItems="center">
-            <h1 style={{ fontSize: '2.5em' }}>{t('uniques.guide.text2.title')}</h1>
-            <Text>{t('uniques.guide.text2')}</Text>
-            <Grid item lg={12} alignItems="center" justifyContent="center" style={{ display: 'flex', gap: '0.5em' }}>
-              <img src={arenaImg} alt={'arena'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={astralImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={dimensionImg} alt={'dimension'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={globalImg} alt={'global'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={potsImg} alt={'pots'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={reverseImg} alt={'reverse'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-              <img src={speedImg} alt={'speed'} style={{ minHeight: '40px', maxWidth: '100%' }} />
-            </Grid>
-          </Grid>
-        </Card>
+        </Grid>
       </Grid>
-      <Grid item style={{ display: 'flex', margin: '1em 0', width: '100%' }}></Grid>
-      <Card className={classes.card2}>
-        <VideoSection>
-          <Video
-            src={urlUniques}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></Video>
-        </VideoSection>
-      </Card>
+
+      <VideoSection>
+        <Video
+          src={urlUniques}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></Video>
+      </VideoSection>
     </Container>
   );
 };
