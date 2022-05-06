@@ -171,7 +171,7 @@ const JupiterUniques = () => {
         </UniquesContainer>
         <Grid item s={12} lg={5} style={{ marginBottom: '2em' }}>
           <Grid item sm={12} lg={12} style={{ marginBottom: '2em' }}>
-            <Text style={{ padding: 0, margin: 0 }}>{t('jupiter.uniques.guide.text1')}</Text>
+            <Text style={{ padding: 0, margin: 0, textAlign: 'justify' }}>{t('jupiter.uniques.guide.text1')}</Text>
           </Grid>
 
           <Grid container lg={12}>

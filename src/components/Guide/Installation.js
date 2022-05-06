@@ -11,7 +11,7 @@ const Container = styled('div')(({ theme }) => ({
   padding: '1em 2em',
   backgroundImage: `url(${bruja})`,
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: '95% 6%',
+  backgroundPosition: '97% 6%',
   backgroundSize: '22em',
   [theme.breakpoints.down('sm')]: {
     background: 'transparent'
@@ -69,7 +69,7 @@ const Installation = () => {
         style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
         {t('installation.guide.title')}
       </Typography>
-      <Text>{t('installation.guide.text1')}</Text>
+      <Text style={{ textAlign: 'justify' }}>{t('installation.guide.text1')}</Text>
 
       <VideoSection>
         <h4>{t('windows10')}</h4>

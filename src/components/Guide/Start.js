@@ -41,7 +41,7 @@ const Start = () => {
 
       <Grid container spacing={0}>
         <Grid item s={12} md={7} alignItems="center" style={{ display: 'flex' }}>
-          <Text>{t('start.guide.text1')}</Text>
+          <Text style={{ textAlign: 'justify' }}>{t('start.guide.text1')}</Text>
         </Grid>
         <Grid item s={12} md={5}>
           <Image src={welcomeImg} alt="map" />
@@ -54,7 +54,7 @@ const Start = () => {
         </Grid>
 
         <Grid item s={12} md={6} alignItems="center" style={{ display: 'flex' }}>
-          <Text>{t('start.guide.text2')}</Text>
+          <Text style={{ textAlign: 'justify' }}>{t('start.guide.text2')}</Text>
         </Grid>
         <Grid item s={12} md={3} />
 
@@ -63,7 +63,7 @@ const Start = () => {
         <Grid item s={12} md={3} />
 
         <Grid item s={12} md={6} alignItems="center" style={{ display: 'flex' }}>
-          <Text>{t('start.guide.text3')}</Text>
+          <Text style={{ textAlign: 'justify' }}>{t('start.guide.text3')}</Text>
         </Grid>
 
         <Grid item s={12} md={3} alignItems="center" style={{ display: 'flex' }}>

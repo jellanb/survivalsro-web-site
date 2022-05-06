@@ -76,7 +76,7 @@ const Uniques = () => {
         </Grid>
         <Grid item s={12} lg={5} alignItems="center">
           <Typography variant="h4">{t('uniques.guide.text1.title')}</Typography>
-          <Text>{t('uniques.guide.text1')}</Text>
+          <Text style={{ textAlign: 'justify' }}>{t('uniques.guide.text1')}</Text>
           <Grid item lg={12} alignItems="center" justifyContent="center" style={{ display: 'flex', gap: '0.5em' }}>
             <img src={arenaImg} alt={'arena'} style={{ minHeight: '40px', maxWidth: '100%' }} />
             <img src={astralImg} alt={'astral'} style={{ minHeight: '40px', maxWidth: '100%' }} />
