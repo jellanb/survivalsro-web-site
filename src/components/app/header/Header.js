@@ -53,10 +53,10 @@ export default function Header({ setMessage, locale, setLocale }) {
 
   return (
     <header>
-      <AppBar position="static" className={classes.toolbar}>
+      <AppBar position="static" className={classes.toolbar} elevation={0}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Card className={classes.iconMain}>
+            <Card className={classes.iconMain} elevation={0}>
               <CardMedia className={classes.cardMediaIconMain} image={iconMain} />
             </Card>
           </Typography>

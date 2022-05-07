@@ -51,13 +51,28 @@
   "app.SingUpPopUpMessage1": "Hesap kimliğiniz :",
 
   "guides": "kılavuzlar",
-  "leveling": "tesviye",
-  "app.SingUpPopUpMessage1": "Hesap kimliğiniz :",
-
-  "guides": "kılavuzlar",
-  "leveling": "tesviye",
 
   "installation": "Tesis",
   "installation.guide.title": "Yükleme Rehberi",
-  "installation.guide.text1": "En yaygın kurulum işlemi için sadece indirme bölümümüzden dosyaları indirip dosyaları çıkartmanız yeterlidir. Ancak, birçok kullanıcı virüsten koruma yazılımının veya Windows Defender'ın izinsiz girişinden kaynaklanan rahatsızlıklar bildirdi. Bu sebeple bu bölümü Survival Silkroad dosyalarının nasıl silineceğini ve herhangi bir sorun yaşamamak için yaptık."
+  "installation.guide.text1": "En yaygın kurulum işlemi için sadece indirme bölümümüzden dosyaları indirip dosyaları çıkartmanız yeterlidir. Ancak, birçok kullanıcı virüsten koruma yazılımının veya Windows Defender'ın izinsiz girişinden kaynaklanan rahatsızlıklar bildirdi. Bu sebeple bu bölümü Survival Silkroad dosyalarının nasıl silineceğini ve herhangi bir sorun yaşamamak için yaptık.",
+
+  "start": "Başlangıç",
+  "start.guide.title": "Başlangıç ​​kılavuzu",
+  "start.guide.text1": "Tüm süreçlerin en kısa girişini yapmak, tüm işlevleri yerine getirmek için her şeyi içerir.",
+  "start.guide.text2": "Başlangıç ​​seviyelerine hızlı ve güvenli bir şekilde çıkabilmeniz için en yüksek güce sahip bileşenlerden oluşan bir kit ile başlamanız da çok faydalı olacaktır.",
+  "start.guide.text3": "Ancak, ulaştığınız seviyeler için görevleri de talep edebilirsiniz, limonlar gücünüzü artırmak için size yeni silahlar ve parşömenler sağlayacaktır.",
+
+  "leveling": "Tesviye",
+  "leveling.guide.title": "Tesviye kılavuzu",
+  "leveling.guide.text1": "Zorluk seviyemizin Orta / Yüksek olduğunu göz önünde bulundurarak, tüm kullanıcılara geleneksel şekilde ilk 20 veya 30 seviyeyi tırmanmalarını öneriyoruz, ilk unique ile karşılaşmadan önce bu seviyelere ulaşmak sadece bir saat sürecektir.",
+  "leveling.guide.text2": "Powder Level ruhları, bu dost uniquelerden en az birini öldürmek için yeterli güce ulaştıktan sonra bir merdivende kullanılabilir. Undine Lvl. 10, Semenderler Lvl. 30, Slyph Lvl. 50 ve Gnome Lvl. 70. Bu ruhlar zararsızdır, size saldırmazlar ve her 5 dakikada bir aynı noktada yeniden doğarlar.",
+
+  "uniques": "Uniques",
+  "uniques.guide.title": "Uniques kılavuz",
+  "uniques.guide.text1.title": "benzersiz devler",
+  "uniques.guide.text1": "Bu uniqueler günde sadece iki kez ortaya çıkar, farklı sınıflardan beş ila altı unique, içinde önemli öğeler bulunan çeşitli spawn noktalarını istila eder.",
+
+  "jupiter.uniques": "Jüpiter'e özgü",
+  "jupiter.uniques.guide.title": "Eşsiz Jüpiter Rehberi",
+  "jupiter.uniques.guide.text1": "Bu efsanevi ruhlar, Survival Silkroad haritasının çeşitli bölgelerine dağılmıştır. İçerisinde, her oyun stilinin gelişimi için lüks ve önemli faydalar bulacaksınız."
 }

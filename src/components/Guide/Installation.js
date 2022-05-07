@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core';
+import { styled, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import bruja from '../../images/InstalationImg1.png';
 
@@ -6,11 +6,12 @@ const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5em',
+  height: '100%',
   with: '100%',
   padding: '1em 2em',
   backgroundImage: `url(${bruja})`,
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: '92.5% 6%',
+  backgroundPosition: '97% 6%',
   backgroundSize: '22em',
   [theme.breakpoints.down('sm')]: {
     background: 'transparent'
@@ -56,21 +57,28 @@ const Installation = () => {
   const { t } = useTranslation();
   const urlW7 = process.env['REACT_APP_INSTALL_GUID_W7_URL'];
   const urlW10 = process.env['REACT_APP_INSTALL_GUID_W10_URL'];
+  const fireflies = Array(40)
+    .fill(0)
+    .map((_, i) => <div key={i} className="firefly"></div>);
+
   return (
     <Container>
-      <h1>{t('installation.guide.title')}</h1>
-
-      <Text>{t('installation.guide.text1')}</Text>
+      {fireflies}
+      <Typography
+        variant="h1"
+        style={{ fontSize: '2em', fontFamily: 'var(--survivalLikeFontFamily)', margin: '0.5em 0' }}>
+        {t('installation.guide.title')}
+      </Typography>
+      <Text style={{ textAlign: 'justify' }}>{t('installation.guide.text1')}</Text>
 
       <VideoSection>
         <h4>{t('windows10')}</h4>
         <Video
           src={urlW10}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></Video>
+          allowFullScreen></Video>
       </VideoSection>
 
       <VideoSection>
@@ -78,10 +86,9 @@ const Installation = () => {
         <Video
           src={urlW7}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></Video>
+          allowFullScreen></Video>
       </VideoSection>
     </Container>
   );

@@ -37,10 +37,12 @@
     "react-icons": "^4.3.1",
     "react-live-clock": "^5.6.1",
     "react-material-ui-carousel": "^2.2.6",
+    "react-medium-image-zoom": "^4.3.7",
     "react-moment": "^1.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-sdk-mercadopago": "^1.1.1",
+    "sass": "^1.50.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -48,8 +50,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "check": "prettier --check ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
+    "check": "prettier --check ./**/*.{js,css,md,json} --config ./.prettierrc",
+    "format": "prettier --write ./**/*.{js,css,md,json} --config ./.prettierrc",
     "prepare": "husky install"
   },
   "eslintConfig": {

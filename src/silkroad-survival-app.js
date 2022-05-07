@@ -20,8 +20,8 @@ export default function SilkroadSurvivalApp() {
   return (
     <UserContext.Provider value={{ userCtx, setUserCtx }}>
       <Router>
-        <MainLayout>
-          <Switch>
+        <Switch>
+          <MainLayout>
             <Route exact path="/" component={Main} />
             <Route exact path="/singUp" component={SingUp} />
             <Route exact path="/singIn" component={SingIn} />
@@ -32,8 +32,8 @@ export default function SilkroadSurvivalApp() {
             <Route exact path="/editAccount" component={EditAccount} />
             <Route exact path="/MercadoPago" component={MercadoPago} />
             <Route exact path="/stripe" component={Stripe} />
-          </Switch>
-        </MainLayout>
+          </MainLayout>
+        </Switch>
       </Router>
     </UserContext.Provider>
   );
