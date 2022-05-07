@@ -72,7 +72,7 @@ const Uniques = () => {
       </Typography>
       <Grid container style={{ display: 'flex', alignItems: 'center' }}>
         <Grid item s={12} lg={7}>
-          <Image src={elitesImg} alt="power-level-uniques" style={{ maxWidth: '100%' }} aspectRatio={2.278} />
+          <Image src={elitesImg} alt="power-level-uniques" aspectRatio={2.278} />
         </Grid>
         <Grid item s={12} lg={5} alignItems="center">
           <Typography variant="h4">{t('uniques.guide.text1.title')}</Typography>

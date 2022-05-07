@@ -50,7 +50,7 @@ const Start = () => {
         <Grid item style={{ display: 'flex', margin: '2em 0', width: '100%' }}></Grid>
 
         <Grid item s={12} md={3}>
-          <Image src={inventoryImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={0.95} />
+          <Image src={inventoryImg} alt="map" aspectRatio={0.95} />
         </Grid>
 
         <Grid item s={12} md={6} alignItems="center" style={{ display: 'flex' }}>
@@ -67,7 +67,7 @@ const Start = () => {
         </Grid>
 
         <Grid item s={12} md={3} alignItems="center" style={{ display: 'flex' }}>
-          <Image src={questsImg} alt="map" style={{ maxWidth: '100%' }} aspectRatio={1} />
+          <Image src={questsImg} alt="map" aspectRatio={1} />
         </Grid>
       </Grid>
     </Container>
