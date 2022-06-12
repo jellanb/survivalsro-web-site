@@ -131,7 +131,7 @@ export default function Pricing() {
                     action={tier.title === 'Pro' ? <StarIcon /> : null}
                     className={classes.cardHeader}
                   />
-                  <CardContent></CardContent>
+                  <CardContent />
                   <CardActions>
                     <Button
                       onClick={() => window.open(tier.href, '_blank')}

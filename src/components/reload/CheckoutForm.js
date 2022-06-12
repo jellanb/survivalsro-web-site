@@ -86,7 +86,6 @@ export default function CheckoutForm(history) {
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-    addSilkAfterPayment(userCtx.username, userCtx.silkPay);
     setIsLoading(true);
     const { error } = await stripe.confirmPayment({
       elements,
@@ -104,12 +103,10 @@ export default function CheckoutForm(history) {
       setMessage(error.message);
       setUserCtx({ ...userCtx, description: 'payment refused' });
       setOpen(true);
-      UseFetchRollBackOrderPaymentStripe(userCtx.username, userCtx.silkPay);
     } else {
       setMessage('An unexpected error occured.');
       setUserCtx({ ...userCtx, description: 'payment refused' });
       setOpen(true);
-      UseFetchRollBackOrderPaymentStripe(userCtx.username, userCtx.silkPay);
     }
 
     setIsLoading(false);
