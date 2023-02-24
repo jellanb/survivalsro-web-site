@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import imagePresent from '../../images/newLogin.png';
+import imagePresent from '../../../images/newLogin.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,10 +61,10 @@ export default function SingInForm({ handleSubmit, usernameErrors, passwordError
                 margin="normal"
                 required
                 fullWidth
-                id="Username"
-                label="Username"
-                name="Username"
-                autoComplete="Username"
+                id="username"
+                label="username"
+                name="username"
+                autoComplete="username"
                 autoFocus
                 type="string"
                 helperText={usernameErrors.error ? usernameErrors.description : ''}
@@ -74,10 +74,10 @@ export default function SingInForm({ handleSubmit, usernameErrors, passwordError
                 margin="normal"
                 required
                 fullWidth
-                name="Password"
-                label="Password"
+                name="password"
+                label="password"
                 type="password"
-                id="Password"
+                id="password"
                 autoComplete="current-password"
                 helperText={passwordErrors.error ? passwordErrors.description : ''}
               />

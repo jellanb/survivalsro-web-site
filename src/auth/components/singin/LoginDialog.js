@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
 export default function LoginDialog({ open, setOpen, message }) {
   const classes = useStyles();
 
-  console.log(message);
-
   const handleClose = () => {
     setOpen(false);
   };

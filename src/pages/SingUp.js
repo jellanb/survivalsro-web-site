@@ -1,28 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import { useSingUp } from '../hooks/useSingUP';
-import Slide from '@material-ui/core/Slide';
 import BackDropPayment from '../components/common/progress/BackDropPayment';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import { useTranslation } from 'react-i18next';
+import SingUpForm from '../auth/components/singup/SingUpForm';
+import RegisterDialog from '../auth/components/singup/RegisterDialog';
+import md5 from 'js-md5';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,10 +23,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main
   },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
-  },
   submit: {
     margin: theme.spacing(3, 0, 2)
   },
@@ -47,33 +31,69 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 export default function SignUp() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const {
-    handleEmailOnBlur,
-    handlePasswordOnBlur,
-    handleUsernameOnBlur,
-    handlerLastNameOnBlur,
-    user,
-    createNewUser,
-    load,
-    dialog,
-    setDialog,
-    handleChangeSelectSecretQuestion,
-    handleSecretAnswerOnBlur
-  } = useSingUp();
+  const [userNameErrors, setUsernameErrors] = useState({});
+  const [nameErrors, setNameErrors] = useState({});
+  const [emailErrors, setEmailErrors] = useState({});
+  const [passwordErrors, setPasswordErrors] = useState({});
+  const [secretQErrors, setSecretQErrors] = useState({});
+  const [secretAErrors, setSecretAErrors] = useState({});
+  const [registerResult, setRegisterResult] = useState({});
+  const { createNewUser, load, dialog, setDialog, imputValidation } = useSingUp();
 
   const handleClose = () => {
     setDialog(false);
   };
 
-  const handleClick = async (e) => {
-    await createNewUser(e);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const username = formData.get('username').trim();
+    const usernameValidation = imputValidation('username', username);
+    setUsernameErrors(usernameValidation);
+
+    const name = formData.get('name').trim();
+    const nameValidation = imputValidation('name', name);
+    setNameErrors(nameValidation);
+
+    const email = formData.get('email').trim();
+    const emailValidation = imputValidation('email', email);
+    setEmailErrors(emailValidation);
+
+    const password = md5.hex(formData.get('password').trim());
+    const passwordValidation = imputValidation('password', formData.get('password').trim());
+    setPasswordErrors(passwordValidation);
+
+    const secretQuestion = formData.get('secretQuestion');
+    const secretQuestionValidation = imputValidation('secretQuestion', secretQuestion);
+    setSecretQErrors(secretQuestionValidation);
+
+    const secretAnswer = formData.get('secretAnswer');
+    const secretAnswerValidation = imputValidation('secretAnswer', secretAnswer);
+    setSecretAErrors(secretAnswerValidation);
+
+    if (
+      !usernameValidation.error &&
+      !nameValidation.error &&
+      !emailValidation.error &&
+      !passwordValidation.error &&
+      !secretQuestionValidation.error &&
+      !secretAnswerValidation.error
+    ) {
+      const userResult = await createNewUser({
+        username,
+        lastName: name,
+        email,
+        password,
+        secretQuestion,
+        secretAnswer
+      });
+      setRegisterResult(userResult);
+      setDialog(true);
+    }
   };
 
   return (
@@ -87,141 +107,18 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             {t('app.SingUpTile')}
           </Typography>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="fname"
-                  name="ID Us"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="ID usuario"
-                  label={t('app.SingUpInputUserId')}
-                  autoFocus
-                  onBlur={handleUsernameOnBlur}
-                  helperText={user.errorIsValid ? user.descName : ''}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="Nombre"
-                  label={t('app.SingUpInputName')}
-                  name="Nombre"
-                  autoComplete="lname"
-                  onBlur={handlerLastNameOnBlur}
-                  helperText={user.errorLastname ? user.descLast : ''}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="email"
-                  label={t('app.SingUpInputEmail')}
-                  name="email"
-                  autoComplete="email"
-                  onBlur={handleEmailOnBlur}
-                  helperText={user.errorEmail ? user.descEmail : ''}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password"
-                  label={t('app.SingUpInputPassword')}
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  onBlur={handlePasswordOnBlur}
-                  helperText={user.errorPass ? user.descPass : ''}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl variant="outlined" className={classes.form}>
-                  <InputLabel id="demo-simple-select-filled-label">{t('app.SingUpInputSecretQ')}</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-filled-label"
-                    id="demo-simple-select-filled"
-                    value={user.secretQuestion}
-                    onChange={handleChangeSelectSecretQuestion}
-                    label={t('app.SingUpInputSecretQ')}
-                  >
-                    <MenuItem value="Lugar de nacimiento de la madre">{t('app.SingUpInputSecretQ1')}</MenuItem>
-                    <MenuItem value="Mejor amigo de la infancia">{t('app.SingUpInputSecretQ2')}</MenuItem>
-                    <MenuItem value="Nombre de la primera mascota">{t('app.SingUpInputSecretQ3')}</MenuItem>
-                    <MenuItem value="Personaje faborita de la historia">{t('app.SingUpInputSecretQ4')}</MenuItem>
-                    <MenuItem value="ocupacion del abuelo">{t('app.SingUpInputSecretQ5')}</MenuItem>
-                  </Select>
-                  <FormHelperText>{user.errorQuestion ? user.errorQuestionDesc : ''}</FormHelperText>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="secretAnswer"
-                  label={t('app.SingUpInputSecretQ5')}
-                  type="secretAnswer"
-                  id="secretAnswer"
-                  autoComplete="current-secretAnswer"
-                  onBlur={handleSecretAnswerOnBlur}
-                  helperText={user.errorAnswer ? user.errorAnswerDesc : ''}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="reset"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={handleClick}
-            >
-              {t('app.SingUpButtonCreateAccount')}
-            </Button>
-            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              <Button fullWidth variant="contained" color="default" className={classes.submit}>
-                {t('app.SingUpButtonBackHome')}
-              </Button>
-            </Link>
-            <Grid container justify="flex-end">
-              {/* <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid> */}
-            </Grid>
-          </form>
+          <SingUpForm
+            handleSubmit={handleSubmit}
+            userNameErrors={userNameErrors}
+            nameErrors={nameErrors}
+            emailErrors={emailErrors}
+            passwordErrors={passwordErrors}
+            secretQErrors={secretQErrors}
+            secretAErrors={secretAErrors}
+          />
         </div>
         <div>
-          <Dialog
-            open={dialog}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-slide-title"
-            aria-describedby="alert-dialog-slide-description"
-          >
-            <DialogTitle id="alert-dialog-slide-title">{t('app.SingUpPopUpMessage')}</DialogTitle>
-            <DialogContent>
-              <DialogContentText>{`Tu ID de cuenta es: ${user.username}`}</DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-                <Button fullWidth variant="contained" color="primary" className={classes.submit}>
-                  Aceptar
-                </Button>
-              </Link>
-            </DialogActions>
-          </Dialog>
+          <RegisterDialog registerResult={registerResult} isOpen={dialog} handleClose={handleClose} />
         </div>
       </Container>
       <BackDropPayment open={load} />

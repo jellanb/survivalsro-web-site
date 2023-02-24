@@ -10,12 +10,12 @@ export const useSingIn = () => {
   const { t } = useTranslation();
 
   const imputValidation = (name, value) => {
-    if (name === 'Username') {
+    if (name === 'username') {
       if (!value) return { error: true, description: 'username is required!' };
       if (value.length < 2) return { error: true, description: 'username must be more than 2 characteres!' };
       return { error: false, description: '' };
     }
-    if (name === 'Password') {
+    if (name === 'password') {
       if (!value) return { error: true, description: 'password is required!' };
       if (value.length < 5) return { error: true, description: 'password must be more than 6 characteres!' };
       return { error: false, description: '' };

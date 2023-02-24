@@ -3,8 +3,8 @@ import { useSingIn } from '../hooks/useSingIn';
 import Container from '@material-ui/core/Container';
 import BackDropPayment from '../components/common/progress/BackDropPayment';
 import md5 from 'js-md5';
-import LoginDialog from '../auth/components/LoginDialog';
-import SingInForm from '../auth/components/SingInForm';
+import LoginDialog from '../auth/components/singin/LoginDialog';
+import SingInForm from '../auth/components/singin/SingInForm';
 
 export default function SignInSide() {
   const [open, setOpen] = useState(false);
@@ -18,13 +18,13 @@ export default function SignInSide() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const username = formData.get('Username').trim();
-    const usernameValidation = imputValidation('Username', username);
+    const username = formData.get('username').trim();
+    const usernameValidation = imputValidation('username', username);
 
     setUsernameErrors(usernameValidation);
 
-    const password = md5.hex(formData.get('Password').trim());
-    const passwordValidation = imputValidation('Password', formData.get('Password').trim());
+    const password = md5.hex(formData.get('password').trim());
+    const passwordValidation = imputValidation('password', formData.get('password').trim());
 
     setPasswordErrors(passwordValidation);
 

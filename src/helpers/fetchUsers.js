@@ -13,16 +13,11 @@ export const UserFetchEmailByEmail = async (email) => {
 };
 
 export const UseFetchAddUser = async (user) => {
-  const url = `${process.env.REACT_APP_API_URL}/users/add-new-user?username=${user.username}&lastname=${
-    user.lastName
-  }&email=${user.email}&password=${md5.hex(user.password)}&secretQuestion=${user.secretQuestion}&secretAnswer=${
-    user.secretAnswer
-  }`;
+  const url = `${process.env.REACT_APP_API_URL}/users/add-new-user?username=${user.username}&lastname=${user.lastName}&email=${user.email}&password=${user.password}&secretQuestion=${user.secretQuestion}&secretAnswer=${user.secretAnswer}`;
   return (await fetch(url, { mode: 'cors', method: 'POST' })).json();
 };
 
 export const UserFetchLogin = async (username, password) => {
-  console.log(username, password);
   const url = `${process.env.REACT_APP_API_URL}/users/sing-in?username=${username}&password=${password}`;
   return (await fetch(url, { mode: 'cors', method: 'GET' })).json();
 };
