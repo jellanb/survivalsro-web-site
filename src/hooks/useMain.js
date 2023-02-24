@@ -16,7 +16,7 @@ export default function UseMain() {
       const { CharName16 } = usernameLastUniqueKill;
       setSystemTime(serverTime.SYSTEM_TIME);
       setUserLastKill(CharName16);
-      setUsersOnlineCount(usersOnline + 30);
+      setUsersOnlineCount(usersOnline);
       setFortressInfo(fortressInfo);
       setNextCaptureFlagTime(nextCaptureFlagTime);
       setOpenDialog(false);

@@ -1,5 +1,5 @@
-import md5 from 'js-md5';
 import dotenv from 'dotenv';
+import md5 from 'js-md5';
 dotenv.config();
 
 export const UseFetchUsersByName = async (name) => {
@@ -22,7 +22,8 @@ export const UseFetchAddUser = async (user) => {
 };
 
 export const UserFetchLogin = async (username, password) => {
-  const url = `${process.env.REACT_APP_API_URL}/users/sing-in?username=${username}&password=${md5.hex(password)}`;
+  console.log(username, password);
+  const url = `${process.env.REACT_APP_API_URL}/users/sing-in?username=${username}&password=${password}`;
   return (await fetch(url, { mode: 'cors', method: 'GET' })).json();
 };
 

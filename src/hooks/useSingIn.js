@@ -9,54 +9,45 @@ export const useSingIn = () => {
   const { userCtx, setUserCtx } = useContext(UserContext);
   const { t } = useTranslation();
 
-  const handleLogoutClick = () => {
-    setUserCtx({ ...userCtx, username: undefined, silk: undefined, isSingIn: false, description: '', url: '' });
-    console.log(userCtx);
+  const imputValidation = (name, value) => {
+    if (name === 'Username') {
+      if (!value) return { error: true, description: 'username is required!' };
+      if (value.length < 2) return { error: true, description: 'username must be more than 2 characteres!' };
+      return { error: false, description: '' };
+    }
+    if (name === 'Password') {
+      if (!value) return { error: true, description: 'password is required!' };
+      if (value.length < 5) return { error: true, description: 'password must be more than 6 characteres!' };
+      return { error: false, description: '' };
+    }
   };
 
-  const handleUsernameOnBlur = async (e) => {
+  const handleLogoutClick = () => {
+    setUserCtx({ ...userCtx, username: undefined, silk: undefined, isSingIn: false, description: '', url: '' });
+  };
+
+  const handleUsernameOnBlur = async (username) => {
     setLoad(true);
-    const value = e.target.value;
-    const result = await UseFetchUsersByName(value);
-    if (!value) {
+    if (!username) {
       setUser({ ...user, errorIsValid: true, descName: t('app.loginInputSingInError') });
       setLoad(false);
       return;
     }
-    if (result.isValid) {
-      setUser({ ...user, username: value, errorIsValid: false, descName: '' });
-      setLoad(false);
+  };
+
+  const handlePasswordOnBlur = (Password) => {
+    if (Password && Password.length >= 6) {
+      setUser({ ...user, password: Password, errorPass: false, descPass: '' });
     } else {
-      function getMessageError() {
-        return (
-          <div>
-            {t('app.loginInputSingInError2')}
-            {`  ${value}  `}
-            {t('app.loginInputSingInError3')}
-          </div>
-        );
-      }
-      setUser({ ...user, errorIsValid: true, descName: getMessageError() });
-      setLoad(false);
+      setUser({ ...user, password: Password, errorPass: true, descPass: '6 caracteres minimo' });
     }
   };
 
-  const handlePasswordOnBlur = (e) => {
-    let value = e.target.value;
-    if (value && value.length >= 6) {
-      setUser({ ...user, password: value, errorPass: false, descPass: '' });
-    } else {
-      setUser({ ...user, password: value, errorPass: true, descPass: '6 caracteres minimo' });
-    }
-  };
-
-  const onLoginClick = async (e) => {
-    e.preventDefault();
+  const onLoginClick = async (username, password, setLoginResultMessage) => {
     setLoad(true);
-    const login = await UserFetchLogin(user.username, user.password);
+    const login = await UserFetchLogin(username, password);
     if (login.isSingIn) {
-      setUserCtx({
-        ...userCtx,
+      const data = {
         username: login.userName,
         silk: login.silk,
         isSingIn: login.isSingIn,
@@ -66,18 +57,41 @@ export const useSingIn = () => {
         email: login.email,
         password: login.password,
         url: ''
-      });
-      setLoad(false);
-    } else {
-      setUserCtx({
+      };
+      await setUserCtx({
         ...userCtx,
+        username: data.userName,
+        silk: data.silk,
+        isSingIn: data.isSingIn,
+        description: data.description,
+        question: data.secretQuestion,
+        answer: data.secretAnswer,
+        email: data.email,
+        password: data.password,
+        url: ''
+      });
+      await setLoginResultMessage(data.description);
+      setLoad(false);
+      return data;
+    } else {
+      const data = {
         username: login.userName,
         silk: login.silk,
         isSingIn: false,
         description: login.description,
         url: 'SingIn'
+      };
+      await setUserCtx({
+        ...userCtx,
+        username: data.userName,
+        silk: data.silk,
+        isSingIn: false,
+        description: data.description,
+        url: 'SingIn'
       });
+      await setLoginResultMessage(data.description);
       setLoad(false);
+      return data;
     }
   };
 
@@ -89,6 +103,7 @@ export const useSingIn = () => {
     userCtx,
     setUserCtx,
     load,
-    handleLogoutClick
+    handleLogoutClick,
+    imputValidation
   };
 };
