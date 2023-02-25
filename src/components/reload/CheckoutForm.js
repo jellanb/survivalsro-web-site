@@ -76,7 +76,6 @@ export default function CheckoutForm(history) {
           break;
       }
     });
-    console.log(userCtx.silkPay);
   }, [stripe]);
 
   const handleSubmit = async (e) => {

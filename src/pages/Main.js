@@ -23,6 +23,9 @@ import Slide from '@material-ui/core/Slide';
 import UseFortesBarIndo from '../hooks/useMain';
 import GeneralInformationBar from '../components/app/header/sub-bar-info/GeneralInformationBar';
 import ServerTimesInfo from '../components/main/ServerTimesInfo';
+import PlatersOnline from '../components/main/PlayersOnline';
+import List from '@material-ui/core/List';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -33,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
   },
   rootCard: {
     backgroundSize: 'cover'
+  },
+  root: {
+    background: 'linear-gradient(45deg, #292727 30%, #1B1919 90%)',
+    boxShadow: '0 3px 5px 2px rgba(100, 105, 135, .3)',
+    borderRadius: 5
+  },
+  title: {
+    fontSize: 14,
+    color: 'white'
   }
 }));
 
@@ -44,7 +56,8 @@ export default function Main() {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [openDialog, setOpenDialog] = useState(false);
-  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime } = UseFortesBarIndo();
+  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime, playesOnlineNames } =
+    UseFortesBarIndo();
   var items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
 
   const handleClose = async () => {
@@ -78,7 +91,16 @@ export default function Main() {
             </Carousel>
           </Grid>
           <Grid item xl={2} lg={2} xs={12}>
-            <ServerTimesInfo open={load} serverTime={systemTime} />
+            <Card className={classes.root}>
+              <CardContent>
+                <List className={classes.title}>
+                  <ServerTimesInfo open={load} serverTime={systemTime} />
+                </List>
+                <List className={classes.title}>
+                  <PlatersOnline playesOnlineNames={playesOnlineNames} />
+                </List>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
         <br />

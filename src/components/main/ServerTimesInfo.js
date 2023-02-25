@@ -1,67 +1,46 @@
 import React, { Fragment } from 'react';
-import CardContent from '@material-ui/core/CardContent';
-import List from '@material-ui/core/List';
+import ServerClock from './server-time/ServerClock';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import {
-  GiSnakeTotem,
-  GiBattleAxe,
-  GiEgyptianSphinx,
-  GiClockwork,
-  GiIndiaGate,
-  GiEgyptianWalk,
-  GiEgyptianProfile,
-  GiScarecrow
-} from 'react-icons/gi';
-import { BsFillFlagFill } from 'react-icons/bs';
+import { GiClockwork } from 'react-icons/gi';
 import ListItemText from '@material-ui/core/ListItemText';
-import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
-import Clock from 'react-live-clock';
 import { useTranslation } from 'react-i18next';
-import Countdown from 'react-countdown';
-import ServerClock from './server-time/ServerClock';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  root: {
-    background: 'linear-gradient(45deg, #292727 30%, #1B1919 90%)',
-    boxShadow: '0 3px 5px 2px rgba(100, 105, 135, .3)',
-    borderRadius: 5
-  },
-  title: {
-    fontSize: 14,
-    color: 'white'
+const useStyles = makeStyles((theme) => ({
+  time: {
+    textAlign: 'center'
   }
-});
+}));
 
 export default function ServerTimesInfo({ serverTime }) {
-  const { t } = useTranslation();
   const classes = useStyles();
+  const { t } = useTranslation();
   const time = Date.parse(serverTime);
 
   return (
     <Fragment>
-      <Card className={classes.root}>
-        <CardContent>
-          <List className={classes.title}>
-            <ListItem divider="true" dense="true">
-              <ListItemAvatar>
-                <GiClockwork />
-              </ListItemAvatar>
-              <ListItemText primary={<b>{t('app.ServerTime')}</b>}></ListItemText>
-            </ListItem>
-            <ListItem divider="false" style={{ display: 'flex', justifyContent: 'center' }}>
-              <ServerClock time={time} />
-            </ListItem>
-            {/*<ListItem divider='true' dense='true'>
-                            <ListItemAvatar >
+      <ListItem divider="true" dense="true">
+        <ListItemAvatar>
+          <GiClockwork />
+        </ListItemAvatar>
+        <ListItemText primary={<b>{t('app.ServerTime')}</b>} />
+      </ListItem>
+      <ListItem className={classes.time}>
+        <ListItemText className={classes.users}>
+          <ServerClock time={time} />
+        </ListItemText>
+      </ListItem>
+
+      <ListItem divider="true" dense="true" />
+
+      {/* <ListItemAvatar >
                                 <GiIndiaGate/>
                             </ListItemAvatar>
                             <ListItemText primary={<b><FormattedMessage id="app.Ftw.Time" /></b>} >
                             </ListItemText>
-                            <Countdown date={date} />
-                        </ListItem>*/}
-            {/*<ListItem divider="true" dense="true">
+                            <Countdown date={date} /> */}
+      {/*<ListItem divider="true" dense="true">
               <ListItemAvatar>
                 <BsFillFlagFill />
               </ListItemAvatar>
@@ -74,7 +53,7 @@ export default function ServerTimesInfo({ serverTime }) {
               ></ListItemText>
               <Countdown date={date} />
             </ListItem>*/}
-            {/*<ListItem divider='true' dense='true'>
+      {/*<ListItem divider='true' dense='true'>
                             <ListItemAvatar >
                                 <GiBattleAxe/>
                             </ListItemAvatar>
@@ -121,10 +100,7 @@ export default function ServerTimesInfo({ serverTime }) {
                             <ListItemText primary={<b>{t('app.sel.Time')}'</b>} >
                             </ListItemText>
                             <Countdown date={date}/>
-                        </ListItem>*/}
-          </List>
-        </CardContent>
-      </Card>
+          </ListItem>*/}
     </Fragment>
   );
 }

@@ -62,7 +62,6 @@ export default function SelectionReload({ title, max, min, defaultValue, mark, h
 
   const handleChangeCommit = async () => {
     await handleChange(value);
-    console.log(value);
   };
 
   return (

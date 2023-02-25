@@ -8,7 +8,6 @@ export const useSingUp = () => {
   const createNewUser = async (newUser) => {
     setLoad(true);
     const registerResult = await UseFetchAddUser(newUser);
-    console.log(registerResult);
     setLoad(false);
     return registerResult;
   };

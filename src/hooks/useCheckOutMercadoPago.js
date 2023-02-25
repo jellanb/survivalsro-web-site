@@ -81,7 +81,6 @@ export function useMercadoPagoApi() {
               .then((data) => setResultPayment(data))
               .catch((err) => {
                 setResultPayment(err);
-                console.log(err.message);
               });
           },
           onFetching: (resource) => {
