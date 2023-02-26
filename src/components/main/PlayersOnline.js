@@ -9,7 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   users: {
-    textAlign: 'center'
+    textAlign: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    algin: 'center'
   }
 }));
 
@@ -19,9 +22,9 @@ export default function PlatersOnline({ playesOnlineNames }) {
 
   return (
     <Fragment>
-      <ListItem divider="true" dense="true">
-        <ListItemAvatar>
-          <PersonIcon fontSize="small" />
+      <ListItem className={classes.users} divider="true" dense="true">
+        <ListItemAvatar className={classes.users}>
+          <PersonIcon />
         </ListItemAvatar>
         <ListItemText primary={<b>{t('app.PlayersOnline')}</b>}></ListItemText>
       </ListItem>
@@ -36,12 +39,22 @@ export default function PlatersOnline({ playesOnlineNames }) {
           '& ul': { padding: 0 },
           color: 'white'
         }}
+        lg={{
+          background: 'transparent',
+          width: '100%',
+          maxWidth: '90%',
+          position: 'relative',
+          overflow: 'auto',
+          maxHeight: '90%',
+          '& ul': { padding: 0 },
+          color: 'white'
+        }}
         subheader={<li />}
       >
         {playesOnlineNames.map((name, index) => (
           <li key={`section-${index}`}>
             <ul>
-              <ListItem key={`item-${index}`}>
+              <ListItem className={classes.users} key={`item-${index}`}>
                 <ListItemText className={classes.users} primary={`${name}`} />
               </ListItem>
             </ul>

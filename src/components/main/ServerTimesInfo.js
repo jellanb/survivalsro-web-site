@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import ServerClock from './server-time/ServerClock';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import { GiClockwork } from 'react-icons/gi';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ListItemText from '@material-ui/core/ListItemText';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,14 +20,14 @@ export default function ServerTimesInfo({ serverTime }) {
 
   return (
     <Fragment>
-      <ListItem divider="true" dense="true">
-        <ListItemAvatar>
-          <GiClockwork />
+      <ListItem className={classes.time} divider="true" dense="true">
+        <ListItemAvatar className={classes.time}>
+          <AccessTimeIcon />
         </ListItemAvatar>
         <ListItemText primary={<b>{t('app.ServerTime')}</b>} />
       </ListItem>
       <ListItem className={classes.time}>
-        <ListItemText className={classes.users}>
+        <ListItemText>
           <ServerClock time={time} />
         </ListItemText>
       </ListItem>
