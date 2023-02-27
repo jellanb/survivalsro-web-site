@@ -179,7 +179,7 @@ export default function ServerInfo() {
             <ListItemText
               primary={
                 <p>
-                  <b>Max PLUS:</b>12 with ADV
+                  <b>Max PLUS:</b>15 with ADV
                 </p>
               }
             />
@@ -191,7 +191,7 @@ export default function ServerInfo() {
             <ListItemText
               primary={
                 <p>
-                  <b>Guild Limit:</b>24
+                  <b>Guild Limit:</b>16
                 </p>
               }
             />
