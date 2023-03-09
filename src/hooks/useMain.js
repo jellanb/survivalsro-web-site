@@ -8,12 +8,20 @@ export default function UseMain() {
   const [nextCaptureFlagTime, setNextCaptureFlagTime] = useState({});
   const [systemTime, setSystemTime] = useState({});
   const [playesOnlineNames, setPlayersOnlineNames] = useState([]);
+  const [uniqueSection, setUniqueSection] = useState([]);
 
   const loadInformation = async (setOpenDialog) => {
     try {
       setOpenDialog(true);
-      const { usersOnline, usernameLastUniqueKill, fortressInfo, nextCaptureFlagTime, serverTime, onlinePlayersNames } =
-        await getLoadInformation();
+      const {
+        usersOnline,
+        usernameLastUniqueKill,
+        fortressInfo,
+        nextCaptureFlagTime,
+        serverTime,
+        onlinePlayersNames,
+        lastKillByUserName
+      } = await getLoadInformation();
       const { CharName16 } = usernameLastUniqueKill;
       setSystemTime(serverTime.SYSTEM_TIME);
       setUserLastKill(CharName16);
@@ -22,6 +30,7 @@ export default function UseMain() {
       setNextCaptureFlagTime(nextCaptureFlagTime);
       setOpenDialog(false);
       setPlayersOnlineNames(onlinePlayersNames);
+      setUniqueSection(lastKillByUserName);
     } catch (failure) {
       setOpenDialog(true);
     }
@@ -33,6 +42,7 @@ export default function UseMain() {
     fortressInfo,
     nextCaptureFlagTime,
     systemTime,
-    playesOnlineNames
+    playesOnlineNames,
+    uniqueSection
   };
 }

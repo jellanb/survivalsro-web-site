@@ -9,6 +9,7 @@ import imagenFond5 from '../images/fondoMain5.png';
 import imagenFond2 from '../images/fondoMain6.png';
 import imagenFond3 from '../images/fondoMain7.jpg';
 import imagenFond4 from '../images/fondoMain8.png';
+import imageOpening from '../images/opening.jpeg';
 import { Container } from '@material-ui/core';
 import DownloadBox from '../components/main/DownloadBox';
 import ServerInfo from '../components/main/Serverinfo';
@@ -26,6 +27,7 @@ import ServerTimesInfo from '../components/main/ServerTimesInfo';
 import PlatersOnline from '../components/main/PlayersOnline';
 import List from '@material-ui/core/List';
 import CardContent from '@material-ui/core/CardContent';
+import UniqueSection from '../components/main/unique-section/UniqueSection';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -56,9 +58,16 @@ export default function Main() {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
   const [openDialog, setOpenDialog] = useState(false);
-  const { loadInformation, userLastKill, usersOnlineCount, fortressInfo, systemTime, playesOnlineNames } =
-    UseFortesBarIndo();
-  var items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
+  const {
+    loadInformation,
+    userLastKill,
+    usersOnlineCount,
+    fortressInfo,
+    systemTime,
+    playesOnlineNames,
+    uniqueSection
+  } = UseFortesBarIndo();
+  let items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
 
   const handleClose = async () => {
     setOpenDialog(false);
@@ -81,7 +90,6 @@ export default function Main() {
         <Grid container spacing={1}>
           <Grid item xl={3} lg={3} xs={12}>
             <ServerInfo />
-            <DownloadBox />
           </Grid>
           <Grid item xl={7} lg={7} xs={12}>
             <Carousel>
@@ -101,6 +109,14 @@ export default function Main() {
                 </List>
               </CardContent>
             </Card>
+          </Grid>
+        </Grid>
+        <Grid container spacing={1}>
+          <Grid item xl={3} lg={3} xs={12}>
+            <DownloadBox />
+          </Grid>
+          <Grid item xl={9} lg={9} xs={12}>
+            <UniqueSection uniqueSection={uniqueSection} />
           </Grid>
         </Grid>
         <br />
