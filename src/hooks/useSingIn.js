@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { UserFetchLogin, UseFetchUsersByName } from '../helpers/fetchUsers';
+import { UserFetchLogin } from '../helpers/fetchUsers';
 import { UserContext } from '../hooks/UserContext';
 import { useTranslation } from 'react-i18next';
 
@@ -9,7 +9,7 @@ export const useSingIn = () => {
   const { userCtx, setUserCtx } = useContext(UserContext);
   const { t } = useTranslation();
 
-  const imputValidation = (name, value) => {
+  const inputValidation = (name, value) => {
     if (name === 'username') {
       if (!value) return { error: true, description: 'username is required!' };
       if (value.length < 2) return { error: true, description: 'username must be more than 2 characteres!' };
@@ -24,23 +24,6 @@ export const useSingIn = () => {
 
   const handleLogoutClick = () => {
     setUserCtx({ ...userCtx, username: undefined, silk: undefined, isSingIn: false, description: '', url: '' });
-  };
-
-  const handleUsernameOnBlur = async (username) => {
-    setLoad(true);
-    if (!username) {
-      setUser({ ...user, errorIsValid: true, descName: t('app.loginInputSingInError') });
-      setLoad(false);
-      return;
-    }
-  };
-
-  const handlePasswordOnBlur = (Password) => {
-    if (Password && Password.length >= 6) {
-      setUser({ ...user, password: Password, errorPass: false, descPass: '' });
-    } else {
-      setUser({ ...user, password: Password, errorPass: true, descPass: '6 caracteres minimo' });
-    }
   };
 
   const onLoginClick = async (username, password, setLoginResultMessage) => {
@@ -60,7 +43,7 @@ export const useSingIn = () => {
       };
       await setUserCtx({
         ...userCtx,
-        username: data.userName,
+        username: data.username,
         silk: data.silk,
         isSingIn: data.isSingIn,
         description: data.description,
@@ -98,12 +81,10 @@ export const useSingIn = () => {
   return {
     user,
     onLoginClick,
-    handlePasswordOnBlur,
-    handleUsernameOnBlur,
     userCtx,
     setUserCtx,
     load,
     handleLogoutClick,
-    imputValidation
+    inputValidation
   };
 };

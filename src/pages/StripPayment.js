@@ -14,15 +14,18 @@ export default function StripPayment(history) {
   const { userCtx, setUserCtx } = useContext(UserContext);
   const [load, setLoad] = useState(true);
   const amount = userCtx.silkPay / 200;
-  useEffect(async () => {
-    if (!userCtx.username) {
-      history.push('/SingIn');
-      return;
+  useEffect(() => {
+    async function createOrderPayment() {
+      if (!userCtx.username) {
+        history.push('/SingIn');
+        return;
+      }
+      // Create PaymentIntent as soon as the page loads
+      const result = await UseFetchCreateOrderPaymentStripe(userCtx.username, amount, userCtx.silkPay);
+      setClientSecret(result.clientSecret);
+      setLoad(false);
     }
-    // Create PaymentIntent as soon as the page loads
-    const result = await UseFetchCreateOrderPaymentStripe(userCtx.username, amount, userCtx.silkPay);
-    setClientSecret(result.clientSecret);
-    setLoad(false);
+    createOrderPayment();
   }, []);
 
   const appearance = {

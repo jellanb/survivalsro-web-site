@@ -45,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Header({ setMessage, locale, setLocale }) {
+export default function Header() {
   const { t } = useTranslation();
   const classes = useStyles();
   const { userCtx } = useContext(UserContext);
   const { username, silk, isSingIn } = userCtx;
+  console.log(userCtx);
 
   return (
     <header>
@@ -95,7 +96,7 @@ export default function Header({ setMessage, locale, setLocale }) {
                   </Link>
                 </Button>
               )}
-              <ControlAccount username={username} silk={silk} isSingIn={isSingIn} />
+              <ControlAccount isSingIn={isSingIn} silk={silk} username={username} />
               <LanguageSelector />
             </ButtonGroup>
           </Box>

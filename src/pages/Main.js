@@ -9,18 +9,10 @@ import imagenFond5 from '../images/fondoMain5.png';
 import imagenFond2 from '../images/fondoMain6.png';
 import imagenFond3 from '../images/fondoMain7.jpg';
 import imagenFond4 from '../images/fondoMain8.png';
-import imageOpening from '../images/opening.jpeg';
 import { Container } from '@material-ui/core';
 import DownloadBox from '../components/main/DownloadBox';
 import ServerInfo from '../components/main/Serverinfo';
 import BackDropPayment from '../components/common/progress/BackDropPayment';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import Slide from '@material-ui/core/Slide';
 import UseFortesBarIndo from '../hooks/useMain';
 import GeneralInformationBar from '../components/app/header/sub-bar-info/GeneralInformationBar';
 import ServerTimesInfo from '../components/main/ServerTimesInfo';
@@ -50,14 +42,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 export default function Main() {
   const classes = useStyles();
   const [load, setLoad] = useState(true);
-  const [openDialog, setOpenDialog] = useState(false);
   const {
     loadInformation,
     userLastKill,
@@ -68,10 +55,6 @@ export default function Main() {
     uniqueSection
   } = UseFortesBarIndo();
   let items = [{ imagen: imagenFond2 }, { imagen: imagenFond3 }, { imagen: imagenFond4 }, { imagen: imagenFond5 }];
-
-  const handleClose = async () => {
-    setOpenDialog(false);
-  };
 
   useEffect(() => {
     loadInformation(setLoad);
@@ -121,26 +104,6 @@ export default function Main() {
         </Grid>
         <br />
       </Container>
-      <div>
-        <Dialog
-          open={openDialog}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">{'please reload page!'}</DialogTitle>
-          <DialogContent></DialogContent>
-          <DialogActions>
-            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              <Button fullWidth variant="contained" color="primary" className={classes.submit}>
-                Aceptar
-              </Button>
-            </Link>
-          </DialogActions>
-        </Dialog>
-      </div>
       <BackDropPayment open={load} />
     </Fragment>
   );

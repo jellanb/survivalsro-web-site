@@ -12,20 +12,18 @@ export default function SignInSide() {
   const [passwordErrors, setPasswordErrors] = useState({});
   const [loginResultMessage, setLoginResultMessage] = useState([]);
 
-  const { onLoginClick, load, imputValidation } = useSingIn();
+  const { onLoginClick, load, inputValidation } = useSingIn();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const username = formData.get('username').trim();
-    const usernameValidation = imputValidation('username', username);
-
+    const usernameValidation = inputValidation('username', username);
     setUsernameErrors(usernameValidation);
 
     const password = md5.hex(formData.get('password').trim());
-    const passwordValidation = imputValidation('password', formData.get('password').trim());
-
+    const passwordValidation = inputValidation('password', formData.get('password').trim());
     setPasswordErrors(passwordValidation);
 
     if (!usernameValidation.error && !passwordValidation.error) {

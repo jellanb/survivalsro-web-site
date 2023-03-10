@@ -21,9 +21,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ({
-  user,
-
+export default function SingUpForm({
   handleSubmit,
   userNameErrors,
   nameErrors,
