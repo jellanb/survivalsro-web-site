@@ -50,7 +50,6 @@ export default function Header() {
   const classes = useStyles();
   const { userCtx } = useContext(UserContext);
   const { username, silk, isSingIn } = userCtx;
-  console.log(userCtx);
 
   return (
     <header>

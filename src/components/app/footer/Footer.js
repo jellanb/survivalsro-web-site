@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import WhatsApp from '@material-ui/icons/WhatsApp';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import Discord from '@material-ui/icons/Chat';
 import Sidebar from './Siderbar';
 import Grid from '@material-ui/core/Grid';
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const sidebar = {
   social: [
     { name: 'Instagram', icon: InstagramIcon, url: 'https://www.instagram.com/survivalsro/?hl=es-la' },
-    { name: 'WhatsApp', icon: WhatsApp, url: 'https://chat.whatsapp.com/FUoXQdPsizjKZFv3UWgg3Q' },
+    { name: 'Twitter', icon: TwitterIcon, url: 'https://twitter.com/Silkroadsurviv4' },
     { name: 'Facebook', icon: FacebookIcon, url: 'https://www.facebook.com/profile.php?id=100069379890071' },
     { name: 'Discord', icon: Discord, url: 'https://discord.gg/GRfHYPnwPp' }
   ]
