@@ -9,7 +9,7 @@ const Container = styled('div')(({ theme }) => ({
   with: '100%'
 }));
 
-const Guide = ({ sections }) => {
+export default function Guide({ sections }) {
   return (
     <Container>
       {sections &&
@@ -18,7 +18,7 @@ const Guide = ({ sections }) => {
         })}
     </Container>
   );
-};
+}
 
 Guide.prototype = {
   sections: PropTypes.arrayOf(
@@ -47,5 +47,3 @@ Guide.prototype = {
     })
   )
 };
-
-export default Guide;

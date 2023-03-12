@@ -32,7 +32,7 @@ const AnnexText = styled('span')(({ theme }) => ({
   minHeight: '1em'
 }));
 
-const Section = ({ bgUrl, annexes, height }) => {
+export default function Section({ bgUrl, annexes, height }) {
   const [containerSize, setContainerSize] = useState(0);
   const containerRef = useRef(null);
 
@@ -120,7 +120,7 @@ const Section = ({ bgUrl, annexes, height }) => {
         })}
     </Container>
   );
-};
+}
 
 Section.prototype = {
   bgUrl: PropTypes.string,
@@ -148,5 +148,3 @@ Section.prototype = {
   ),
   height: PropTypes.number
 };
-
-export default Section;
