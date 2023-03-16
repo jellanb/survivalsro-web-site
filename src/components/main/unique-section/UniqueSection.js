@@ -73,11 +73,7 @@ export default function UniqueSection({ uniqueSection }) {
 }
 
 function labelMonsterInfo(info) {
-  console.log(info)
-  const name = info.charName ? info.charName.CharName16 : 'Error'
-  return info.isDeath ? (
-    <Typography color="secondary">{`Killer[${name}]`}</Typography>
-  ) : (
-    <LabelEffect />
-  );
+  console.log(info);
+  const name = info.charName ? info.charName.CharName16 : 'Error';
+  return info.isDeath ? <Typography color="secondary">{`Killer[${name}]`}</Typography> : <LabelEffect />;
 }
