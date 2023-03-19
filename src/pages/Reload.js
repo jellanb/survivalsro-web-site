@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -16,14 +16,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Reload({ history }) {
   const classes = useStyles();
-  const [totalSilk, setTotalSilk] = useState(0);
-  const [totalAmount, setTotalAmount] = useState(0);
-  const { makePayment, load, setLoad, SilkRatio, setUserCtx, userCtx, getDollarValueToPeso } = useReload(history);
+  const [totalSilk, setTotalSilk] = useState(1000);
+  const [totalAmount, setTotalAmount] = useState(5);
+  const { makePayment, load, setLoad, setUserCtx, userCtx, getDollarValueToPeso } = useReload(history);
+
+  useEffect(() => {
+    setUserCtx({ ...userCtx, amount: 5 });
+  }, []);
 
   return (
     <div>
       <CssBaseline />
       <Container maxWidth="xl" component="main" className={classes.main}>
+        <br />
+        <br />
         <Grid container spacing={1}>
           <Grid item xl={12} lg={12} xs={12}>
             <International
@@ -36,7 +42,7 @@ export default function Reload({ history }) {
               makePayment={makePayment}
               totalAmount={totalAmount}
               totalSilk={totalSilk}
-              SilkRatio={SilkRatio}
+              history={history}
             />
           </Grid>
         </Grid>

@@ -4,13 +4,20 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import SelectionReload from '../../SelectionReload';
+import RadioGroup from '@mui/material/RadioGroup';
+import { useTranslation } from 'react-i18next';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import logoPaypal from '../../../images/logoPaypal.png';
 import logoStripe from '../../../images/logo-stripe_0.jpg';
 import { Fragment } from 'react';
+import CardMediaMoney from './CardMediaMoney';
+import { Image } from '@mui/icons-material';
+import totalImg from '../../../images/totalMonedas.png';
+import CardMediaTotalMoneyToPay from './CardMediaTotalMoneyToPay';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,18 +53,18 @@ const client = [
     href: 'https://mega.nz/file/fAwg2JhL#5xOJ16GCpME6R-6SOGjY10ZZPmO6yyPJ4bluCCGg5js',
     image: logoStripe
   }
-  /*{
-    title: 'MercadoPago',
-    buttonText: 'Pagar con MercadoPago (Chile)',
-    buttonVariant: 'contained',
-    href: 'https://mega.nz/file/fAwg2JhL#5xOJ16GCpME6R-6SOGjY10ZZPmO6yyPJ4bluCCGg5js',
-    image: logoMercadoPago
-  }*/
+];
+
+const values = [
+  { value: '1000', label: '1000 Silk' },
+  { value: '3000', label: '3000 Silk' },
+  { value: '6000', label: '6000 Silk' },
+  { value: '10000', label: '10000 Silk' },
+  { value: '15000', label: '15000 Silk' },
+  { value: '20000', label: '20000 Silk' }
 ];
 
 export default function International({
-  setLoad,
-  getDollarValueToPeso,
   setTotalAmount,
   setTotalSilk,
   setUserCtx,
@@ -65,16 +72,48 @@ export default function International({
   makePayment,
   totalAmount,
   totalSilk,
-  SilkRatio
+  setLoad
 }) {
   const classes = useStyles();
-  const handleChangeAmount = async (quantity) => {
-    setLoad(true);
-    const value = parseInt(await getDollarValueToPeso()) + 1;
-    setTotalAmount(quantity / 200);
-    setTotalSilk(quantity);
-    setUserCtx({ ...userCtx, amount: (quantity / 200) * value, silkPay: quantity });
-    setLoad(false);
+  const { t } = useTranslation();
+  const handleChangeAmount = async (event) => {
+    const silk = event.target.value;
+    if (silk === '1000') {
+      const amount = 5;
+      setTotalAmount(amount);
+      setTotalSilk(1000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 1000 });
+    }
+    if (silk === '3000') {
+      const amount = 12;
+      setTotalAmount(amount);
+      setTotalSilk(3000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 3000 });
+    }
+    if (silk === '6000') {
+      const amount = 20;
+      setTotalAmount(amount);
+      setTotalSilk(6000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 6000 });
+    }
+    if (silk === '10000') {
+      const amount = 35;
+      setTotalAmount(amount);
+      setTotalSilk(10000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 10000 });
+    }
+    if (silk === '15000') {
+      const amount = 42;
+      setTotalAmount(amount);
+      setTotalSilk(15000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 15000 });
+    }
+    if (silk === '20000') {
+      const amount = 49;
+      setTotalAmount(amount);
+      setTotalSilk(20000);
+      setUserCtx({ ...userCtx, amount: amount, silkPay: 20000 });
+    }
   };
 
   const handlePaymentClick = async (event) => {
@@ -91,25 +130,45 @@ export default function International({
 
   return (
     <Fragment>
-      {SilkRatio.map((selection) => (
-        <SelectionReload
-          title={selection.title}
-          max={selection.max}
-          min={selection.min}
-          defaultValue={selection.defaultValue}
-          mark={selection.mark}
-          handleChange={handleChangeAmount}
-        />
-      ))}
-      <Grid>
-        <Grid item xs={2} sm={4} md={2}>
+      <Grid container spacing={5} direction="row" alignItems="center" justify="center">
+        <Grid item xs={1} sm={2} md={2} />
+        <Grid item xs={10} sm={6} md={6}>
           <Card>
             <CardContent>
-              <Typography gutterBottom>Total Silk : {totalSilk}</Typography>
-              <Typography gutterBottom>Total Silk a pagar : {totalAmount} $</Typography>
+              <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">{t('app.payment.title')}</FormLabel>
+                <RadioGroup
+                  defaultValue={'1000'}
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  {values.map((detail, index) => (
+                    <CardMediaMoney
+                      key={index}
+                      handleChangeAmount={handleChangeAmount}
+                      detailsValue={detail.value}
+                      detailsLabel={detail.label}
+                    />
+                  ))}
+                </RadioGroup>
+              </FormControl>
             </CardContent>
           </Card>
         </Grid>
+        <Grid item xs={1} sm={2} md={2} />
+      </Grid>
+      <Grid container spacing={5} alignItems="flex-end">
+        <Grid item xs={1} sm={5} md={5} />
+        <Grid item xs={10} sm={4} md={2}>
+          <CardMediaTotalMoneyToPay
+            textSilk={t('app.payment.totalSilk')}
+            quantitySilk={totalSilk}
+            textValue={t('app.payment.totalAmount')}
+            amount={totalAmount}
+          />
+        </Grid>
+        <Grid item xs={1} sm={5} md={5} />
       </Grid>
       <br />
       <Grid container spacing={5} alignItems="flex-end">

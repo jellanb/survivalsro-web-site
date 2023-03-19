@@ -60,5 +60,8 @@
   "app.SingUpPopUpMessage1": "Tu ID de cuenta es :",
   "guides": "Guías",
   "leveling": "Leveling",
-  "installing": "Instalación"
+  "installing": "Instalación",
+  "app.payment.title": "Seleccione la cantidad de silk",
+  "app.payment.totalSilk": "Total de silk:",
+  "app.payment.totalAmount": "Total a pagar:"
 }

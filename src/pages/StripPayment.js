@@ -13,7 +13,7 @@ export default function StripPayment(history) {
   const [clientSecret, setClientSecret] = useState('');
   const { userCtx, setUserCtx } = useContext(UserContext);
   const [load, setLoad] = useState(true);
-  const amount = userCtx.silkPay / 200;
+  const amount = userCtx.amount;
   useEffect(() => {
     async function createOrderPayment() {
       if (!userCtx.username) {

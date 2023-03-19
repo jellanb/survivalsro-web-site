@@ -58,5 +58,8 @@
   "leveling": "Leveling",
   "installation": "Installation",
   "installation.guide.title": "Installation Guide",
-  "installation.guide.text1": "For the most common installation process, it is only necessary to download the files from our download section and extract the files. However, many users reported inconveniences due to the intrusion of antivirus or windows defender. For this reason we have made this section to explain how to delete Survival Silkroad files and not have any problems."
+  "installation.guide.text1": "For the most common installation process, it is only necessary to download the files from our download section and extract the files. However, many users reported inconveniences due to the intrusion of antivirus or windows defender. For this reason we have made this section to explain how to delete Survival Silkroad files and not have any problems.",
+  "app.payment.title": "Select silk quantity",
+  "app.payment.totalSilk": "Total of silk:",
+  "app.payment.totalAmount": "Total to pay:"
 }
