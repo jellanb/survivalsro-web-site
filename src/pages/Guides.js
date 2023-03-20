@@ -7,6 +7,7 @@ import Installation from '../components/Guide/Installation';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MAX_WIDTH } from '../constants';
+import Drops from '../components/Guide/Drops';
 
 const Container = styled(TabsUnstyled)(({ theme }) => ({
   display: 'flex',
@@ -45,21 +46,21 @@ const TabContainer = styled(TabsListUnstyled)(({ theme }) => ({
 }));
 
 const Tab = styled(TabUnstyled)(({ theme }) => ({
-  backgroundColor: '#3f5067',
+  backgroundColor: 'black',
   border: '2px',
   borderColor: '#757a75',
   borderRadius: '1em 0 0 1em',
   borderStyle: 'double none double double',
   borderWidth: 'thick',
-  color: '#afc8d6',
+  color: 'white',
   fontSize: '1em',
   maxWidth: '10em',
   minHeight: '5em',
-  width: 'fit-content',
+  width: 'auto',
   padding: '0.5em',
   textTransform: 'capitalize',
   '&.Mui-selected': {
-    backgroundColor: '#3c7aa2',
+    backgroundColor: '#424242',
     color: '#ffffff',
     fontWeight: 'bold',
     '> *': {
@@ -94,11 +95,16 @@ const Guides = () => {
         <Tab>
           <Typography>{t('installation')}</Typography>
         </Tab>
+        <Tab>
+          <Typography>{t('starting')}</Typography>
+        </Tab>
       </TabContainer>
       <TabPanel value={0}>
         <Installation />
       </TabPanel>
-      <TabPanel value={1}>2</TabPanel>
+      <TabPanel value={1}>
+        <Drops />
+      </TabPanel>
     </Container>
   );
 };

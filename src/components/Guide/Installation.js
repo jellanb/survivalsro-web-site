@@ -8,6 +8,7 @@ const Container = styled('div')(({ theme }) => ({
   gap: '0.5em',
   with: '100%',
   padding: '1em 2em',
+  color: 'white',
   backgroundImage: `url(${bruja})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: '92.5% 6%',
@@ -31,6 +32,7 @@ const Text = styled('p')(({ theme }) => ({
   fontSize: '1.5em',
   width: '80%',
   padding: '1em',
+  color: 'white',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     textAlign: 'center'

@@ -1,70 +1,48 @@
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import React, { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 
 import teleportImgGuid from '../../images/teleportGuide.jpeg';
 import initialItemsImgGuide from '../../images/intialItensGuide.jpeg';
 import npcImgGuide from '../../images/npcGuide.jpeg';
-import { Image } from '@mui/icons-material';
-
-const Container = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5em',
-  with: '100%',
-  padding: '1em 2em',
-  //backgroundImage: `url(${bruja})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '92.5% 6%',
-  backgroundSize: '22em',
-  [theme.breakpoints.down('sm')]: {
-    background: 'transparent'
-  }
-}));
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  height: 60,
-  lineHeight: '60px'
-}));
-
-const darkTheme = createTheme({ palette: { mode: 'dark' } });
+import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
 
 const guides = [{ img: initialItemsImgGuide }, { img: npcImgGuide }, { img: teleportImgGuid }];
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    backgroundColor: 'black'
+  },
+  media: {
+    paddingTop: '56.25%',
+    height: '100%',
+    width: '100%',
+    objectFit: 'cover'
+  },
+  rootCard: {
+    backgroundSize: 'cover'
+  }
+}));
 export default function Drops() {
   const { t } = useTranslation();
+  const classes = useStyles();
 
   return (
-    <Container>
-      <h1>{t('installation.drops.title')}</h1>
-      <Grid container spacing={2}>
-        {[darkTheme].map((theme, index) => (
-          <Grid item xs={6} key={index}>
-            <ThemeProvider theme={theme}>
-              <Box
-                sx={{
-                  p: 2,
-                  bgcolor: 'background.default',
-                  display: 'grid',
-                  gridTemplateColumns: { md: '1fr 1fr' },
-                  gap: 2
-                }}
-              >
-                {guides.map((guide, index) => (
-                  <Item key={index} elevation={index}>
-                    <Image src={guide.img} />
-                  </Item>
-                ))}
-              </Box>
-            </ThemeProvider>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Fragment>
+      <Box sx={{ width: '100%', color: 'white' }}>
+        <h1>{t('starting.guide.title')}</h1>
+        <br />
+        <Stack spacing={2}>
+          {guides.map((info, index) => (
+            <Card key={index} className={classes.rootCard}>
+              <CardMedia image={info.img} className={classes.media} />
+            </Card>
+          ))}
+        </Stack>
+      </Box>
+    </Fragment>
   );
 }

@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { IconButton } from '@mui/material';
-import { IconFlagES, IconFlagUS, IconFlagTR } from 'material-ui-flags';
+import { IconFlagES, IconFlagUS, IconFlagTR, IconFlagBR } from 'material-ui-flags';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { COOKIE_LANGUAGE_KEY } from '../../../constants';
@@ -50,12 +50,21 @@ export default function LanguageSelector() {
         localStorage.setItem(COOKIE_LANGUAGE_KEY, 'en');
         break;
       }
+      case 'pt': {
+        i18n.changeLanguage('pt');
+        localStorage.setItem(COOKIE_LANGUAGE_KEY, 'pt');
+        break;
+      }
       case 'tr': {
         i18n.changeLanguage('tr');
         localStorage.setItem(COOKIE_LANGUAGE_KEY, 'tr');
         break;
       }
-      case 'es':
+      case 'es': {
+        i18n.changeLanguage('es');
+        localStorage.setItem(COOKIE_LANGUAGE_KEY, 'es');
+        break;
+      }
       default: {
         i18n.changeLanguage('es');
         localStorage.setItem(COOKIE_LANGUAGE_KEY, 'es');
@@ -88,6 +97,11 @@ export default function LanguageSelector() {
           <MenuItem value={'tr'}>
             <IconButton>
               <IconFlagTR />
+            </IconButton>
+          </MenuItem>
+          <MenuItem value={'pt'}>
+            <IconButton>
+              <IconFlagBR />
             </IconButton>
           </MenuItem>
         </Select>
