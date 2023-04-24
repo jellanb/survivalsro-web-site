@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UseFetchAddUser } from '../helpers/fetchUsers';
+import { UseFetchAddUser, resetPassword, validCodeToResetPassword } from '../helpers/fetchUsers';
 
 export const useSingUp = () => {
   const [load, setLoad] = useState(false);
@@ -12,7 +12,21 @@ export const useSingUp = () => {
     return registerResult;
   };
 
-  const imputValidation = (name, value) => {
+  const resetPasswordRequest = async (username) => {
+    setLoad(true);
+    const registerResult = await resetPassword(username);
+    setLoad(false);
+    return registerResult;
+  };
+
+  const validPasswordRequest = async (username, code) => {
+    setLoad(true);
+    const registerResult = await validCodeToResetPassword(username, code);
+    setLoad(false);
+    return registerResult;
+  };
+
+  const inputValidation = (name, value) => {
     if (name === 'username') {
       if (!value) return { error: true, description: 'username is required!' };
       if (value.length < 2) return { error: true, description: 'username must be more than 2 characteres!' };
@@ -42,6 +56,11 @@ export const useSingUp = () => {
       if (value === '') return { error: true, description: 'secret answer question is required!' };
       return { error: false, description: '' };
     }
+    if (name === 'code') {
+      if (!value) return { error: true, description: 'code is required!' };
+      if (value.length < 5) return { error: true, description: 'code must be more than 6 characteres!' };
+      return { error: false, description: '' };
+    }
   };
 
   return {
@@ -49,6 +68,8 @@ export const useSingUp = () => {
     load,
     dialog,
     setDialog,
-    imputValidation
+    inputValidation,
+    resetPasswordRequest,
+    validPasswordRequest
   };
 };

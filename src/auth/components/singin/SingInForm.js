@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import imagePresent from '../../../images/newLogin.png';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,6 +85,18 @@ export default function SingInForm({ handleSubmit, usernameErrors, passwordError
               <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                 Entrar
               </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link to="/recoveryPassword" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link to="/SingUp" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
             </form>
           </div>
         </Grid>

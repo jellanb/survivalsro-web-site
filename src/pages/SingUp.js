@@ -41,7 +41,7 @@ export default function SignUp() {
   const [secretQErrors, setSecretQErrors] = useState({});
   const [secretAErrors, setSecretAErrors] = useState({});
   const [registerResult, setRegisterResult] = useState({});
-  const { createNewUser, load, dialog, setDialog, imputValidation } = useSingUp();
+  const { createNewUser, load, dialog, setDialog, inputValidation } = useSingUp();
 
   const handleClose = () => {
     setDialog(false);
@@ -52,27 +52,27 @@ export default function SignUp() {
 
     const formData = new FormData(event.currentTarget);
     const username = formData.get('username').trim();
-    const usernameValidation = imputValidation('username', username);
+    const usernameValidation = inputValidation('username', username);
     setUsernameErrors(usernameValidation);
 
     const name = formData.get('name').trim();
-    const nameValidation = imputValidation('name', name);
+    const nameValidation = inputValidation('name', name);
     setNameErrors(nameValidation);
 
     const email = formData.get('email').trim();
-    const emailValidation = imputValidation('email', email);
+    const emailValidation = inputValidation('email', email);
     setEmailErrors(emailValidation);
 
     const password = md5.hex(formData.get('password').trim());
-    const passwordValidation = imputValidation('password', formData.get('password').trim());
+    const passwordValidation = inputValidation('password', formData.get('password').trim());
     setPasswordErrors(passwordValidation);
 
     const secretQuestion = formData.get('secretQuestion');
-    const secretQuestionValidation = imputValidation('secretQuestion', secretQuestion);
+    const secretQuestionValidation = inputValidation('secretQuestion', secretQuestion);
     setSecretQErrors(secretQuestionValidation);
 
     const secretAnswer = formData.get('secretAnswer');
-    const secretAnswerValidation = imputValidation('secretAnswer', secretAnswer);
+    const secretAnswerValidation = inputValidation('secretAnswer', secretAnswer);
     setSecretAErrors(secretAnswerValidation);
 
     if (

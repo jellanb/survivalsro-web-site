@@ -13,6 +13,7 @@ import Stripe from './pages/StripPayment';
 import Guides from './pages/Guides';
 import { UserContext } from './hooks/UserContext';
 import MainLayout from './containers/layouts/MainLayout';
+import RecoveryPassword from './pages/RecoveryPassword';
 
 export default function SilkroadSurvivalApp() {
   const [userCtx, setUserCtx] = useState({});
@@ -32,6 +33,7 @@ export default function SilkroadSurvivalApp() {
             <Route exact path="/editAccount" component={EditAccount} />
             <Route exact path="/MercadoPago" component={MercadoPago} />
             <Route exact path="/stripe" component={Stripe} />
+            <Route exact path="/recoveryPassword" component={RecoveryPassword} />
           </Switch>
         </MainLayout>
       </Router>

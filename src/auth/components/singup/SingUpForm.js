@@ -44,7 +44,7 @@ export default function SingUpForm({
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
-              autoComplete="fname"
+              autoComplete="username"
               name="username"
               variant="outlined"
               required
